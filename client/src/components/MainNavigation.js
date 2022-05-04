@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import mainNav from './MainNavigation.module.css';
 import 'antd/dist/antd.css';
-import { RiseOutlined, UserOutlined, MenuOutlined } from '@ant-design/icons';
+import { RiseOutlined, UserOutlined } from '@ant-design/icons';
+import Category from './Category.js';
 
 function MainNavigation() {
     return (
@@ -25,8 +26,9 @@ function MainNavigation() {
                 <li>
                     <Link to='mypage'><UserOutlined /></Link>
                 </li>
+
                 <li>
-                    <Link to=''><MenuOutlined /></Link>
+                    <Category></Category>
                 </li>
             </ul>
 
