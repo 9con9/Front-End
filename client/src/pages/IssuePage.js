@@ -1,4 +1,3 @@
-import { RightCircleFilled } from '@ant-design/icons';
 import styled from 'styled-components';
 import PostMain from './post/PostMain';
 
@@ -8,6 +7,7 @@ function IssuePage() {
             <div className='flex-item1' style={{width: "2000px"}}>
                 <PostMain />
             </div>
+
             <div className='flex-item2'>
                 <a href="https://thecheat.co.kr/rb/?mod=_search" target="_blank">
                     <img src={process.env.PUBLIC_URL + '/img/TheCheat.jpg'} onClick="https://thecheat.co.kr/rb/?mod=_search" alt=""
@@ -28,4 +28,4 @@ const Container = styled.div`
   justify-content: center;
   vertical-align: center;
   margin-top:100px;
-`;
+`
