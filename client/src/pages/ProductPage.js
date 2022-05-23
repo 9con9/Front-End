@@ -16,7 +16,23 @@ const suffix = (
     }}
   />
 );
-const onSearch = value => console.log(value);
+
+const startPy = (keyword) => {
+  axios('http://localhost:5000/search', {
+    method: "get",
+    params: {
+      value: keyword
+    },
+  })
+  .then((response) => {
+    console.log(response.data['status']);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+}
+
+const onSearch = value => {startPy(value)}
 //
 
 function ProductPage() {
