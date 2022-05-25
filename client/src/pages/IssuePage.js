@@ -1,5 +1,7 @@
-import styled from 'styled-components';
+
+import styled from 'styled-components'; 
 import PostMain from './post/PostMain';
+
 
 function IssuePage() {
     return (

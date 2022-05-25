@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom';
 const PostMain = props => {
   return (
     <>
-      <h2 align="center">공지사항</h2>
+      <h2 align="center" style={{marginBottom:25}}>공지사항</h2>
       <PostList />
     </>
   )

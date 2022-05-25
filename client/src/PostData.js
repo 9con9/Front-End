@@ -2,36 +2,36 @@
 const postList = [
   {
     "no": 1,
-    "title": "첫번째 게시글입니다.",
-    "content": "첫번째 게시글 내용입니다.",
-    "createDate": "2020-10-25",
+    "title": "공지사항 1",
+    "content": "첫번째 공지사항입니다.",
+    "createDate": "2022-05-06",
 
   },
   {
     "no": 2,
-    "title": "두번째 게시글입니다.",
+    "title": "공지사항 2",
     "content": "두번째 게시글 내용입니다.",
-    "createDate": "2020-10-25",
+    "createDate": "2022-05-13",
 
   },
   {
     "no": 3,
-    "title": "세번째 게시글입니다.",
+    "title": "공지사항 3",
     "content": "세번째 게시글 내용입니다.",
-    "createDate": "2020-10-25",
+    "createDate": "2022-05-20",
   },
   {
     "no": 4,
-    "title": "네번째 게시글입니다.",
+    "title": "공지사항 4",
     "content": "네번째 게시글 내용입니다.",
-    "createDate": "2020-10-25",
+    "createDate": "2022-05-24",
 
   },
   {
     "no": 5,
-    "title": "다섯번째 게시글입니다.",
+    "title": "공지사항 5",
     "content": "다섯번째 게시글 내용입니다.",
-    "createDate": "2020-10-25",
+    "createDate": "2022-05-26",
   },
 ];
 
