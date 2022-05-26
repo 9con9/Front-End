@@ -3,6 +3,7 @@ import ItemCard from '../components/ItemCard';
 //import { useEffect } from "react";
 import { useState } from 'react';
 import Data from '../Data.js';
+import axios from 'axios';
 
 //antd - serch
 import { Input, Space } from 'antd';
@@ -16,7 +17,6 @@ const suffix = (
     }}
   />
 );
-
 const startPy = (keyword) => {
   axios('http://localhost:5000/search', {
     method: "get",
