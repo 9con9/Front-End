@@ -6,6 +6,8 @@
   background: #ffff;
   padding: 0 7%;
   border-bottom: 1px solid #e4e8eb;
+  position: relative;
+  z-index: 3;
 }
 
 .header a {
