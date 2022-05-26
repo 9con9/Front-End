@@ -16,7 +16,6 @@ const suffix = (
     }}
   />
 );
-
 const startPy = (keyword) => {
   axios('http://localhost:5000/search', {
     method: "get",
