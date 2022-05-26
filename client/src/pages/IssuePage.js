@@ -1,4 +1,3 @@
-
 import styled from 'styled-components'; 
 import PostMain from './post/PostMain';
 
