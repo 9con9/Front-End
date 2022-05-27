@@ -14,17 +14,19 @@ class Mainpage extends React.Component {
       return (
         <ReactFullpage
           scrollOverflow={true}
+          navigation={true}
+          navigationPosition='right'
           onLeave={this.onLeave.bind(this)}
           afterLoad={this.afterLoad.bind(this)}
           render={({ state, fullpageApi }) => {
             return (
               <div id="fullpage-wrapper">
                 <div className="section section1">
-                  <h3>사진링크1</h3>
+                  <img src={process.env.PUBLIC_URL +'/img/pic5.jpg'} style={{width:"100%", height:"722px"}} />
                 </div>
                 <div className="section">
                   <div className="slide">
-                    <h3>설명1</h3>
+                    <img src={process.env.PUBLIC_URL +'/img/pic2.jpg'} style={{width:"100%", height:"722px"}}/>
                   </div>
                   <div className="slide">
                     <h3>설명2</h3>
@@ -34,10 +36,7 @@ class Mainpage extends React.Component {
                   </div>
                 </div>
                 <div className="section active">
-                  <h3>사진링크2</h3>
-                  <button onClick={() => fullpageApi.moveTo(1, 0)}>
-                    맨 위로
-                  </button>
+                  <img src={process.env.PUBLIC_URL +'/img/pic3.jpg'} style={{width:"100%", height:"722px"}}/>
                 </div>
               </div>
             );
