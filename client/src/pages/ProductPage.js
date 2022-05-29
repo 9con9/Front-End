@@ -5,17 +5,9 @@ import { useState } from 'react';
 import axios from 'axios';
 
 //antd - serch
-import { Input, Space } from 'antd';
-import { AudioOutlined } from '@ant-design/icons';
+import { Input } from 'antd';
 const { Search } = Input;
-const suffix = (
-  <AudioOutlined
-    style={{
-      fontSize: 16,
-      color: '#1890ff',
-    }}
-  />
-);
+
 const startPy = (keyword) => {
   axios('http://localhost:5000/search', {
     method: "get",
