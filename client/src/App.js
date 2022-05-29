@@ -6,7 +6,8 @@ import ProductPage from './pages/ProductPage';
 import ChartPage from './pages/ChartPage';
 import IssuePage from './pages/IssuePage';
 import MyPage from './pages/MyPage';
-
+import PostView from './pages/post/PostView';
+import PostMain from './pages/post/PostMain';
 /*eslint-disable*/
 
 function App() {
@@ -21,9 +22,14 @@ function App() {
         <Route path='/product' element={<ProductPage />} />
         <Route path='/issue' element={<IssuePage />} />
         <Route path='/mypage' element={<MyPage />} />
+        <Route exact path='/postView/:no' element={<PostView />} />       
+        <Route exact path='/issue' element={<PostMain />} /> 
       </Routes>
+
     </div>
   );
 }
+
+
 
 export default App;

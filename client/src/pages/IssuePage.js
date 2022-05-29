@@ -1,12 +1,19 @@
-import styled from 'styled-components';
+import styled from 'styled-components'; 
+import PostMain from './post/PostMain';
 
 
 function IssuePage() {
     return (
         <Container>
-            <div>
-                <h2> Resell Viewer </h2>
-                <h2> 이슈페이지입니다. </h2>
+            <div className='flex-item1' style={{width: "2000px"}}>
+                <PostMain />
+            </div>
+
+            <div className='flex-item2'>
+                <a href="https://thecheat.co.kr/rb/?mod=_search" target="_blank">
+                    <img src={process.env.PUBLIC_URL + '/img/TheCheat.jpg'} onClick="https://thecheat.co.kr/rb/?mod=_search" alt=""
+                    style={{width:"300px", marginTop:50,  paddingRight:50, verticalAlign:"center"}}/> 
+                </a>
             </div>
         </Container>
     );
@@ -16,8 +23,10 @@ export default IssuePage
 
 const Container = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  width: 100%;
+  float: left;
   justify-content: center;
-  align-items:center;
+  vertical-align: center;
   margin-top:100px;
 `
