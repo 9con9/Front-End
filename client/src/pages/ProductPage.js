@@ -1,22 +1,13 @@
 import styled from 'styled-components';
 import ItemCard from '../components/ItemCard';
-//import { useEffect } from "react";
+import { useEffect } from "react";
 import { useState } from 'react';
-import Data from '../Data.js';
 import axios from 'axios';
 
 //antd - serch
-import { Input, Space } from 'antd';
-import { AudioOutlined } from '@ant-design/icons';
+import { Input } from 'antd';
 const { Search } = Input;
-const suffix = (
-  <AudioOutlined
-    style={{
-      fontSize: 16,
-      color: '#1890ff',
-    }}
-  />
-);
+
 const startPy = (keyword) => {
   axios('http://localhost:5000/search', {
     method: "get",
@@ -36,9 +27,16 @@ const onSearch = value => {startPy(value)}
 //
 
 function ProductPage() {
-  const [items, setitems] = useState(Data)
+  const [items, setItems] = useState()
 
-  //useEffect(()=>{ 쓰고, json 데이터를 {data.map(()=><ItemCard />)} 이런식으로  
+  useEffect(() => {
+    axios.get('http://localhost:3001/product/result')
+      .then(res => setItems(res.data))
+      .catch(function (error) {
+        console.log(error);
+      })
+ })
+
   return (
     <Container>
       <Categori>
@@ -63,13 +61,14 @@ function ProductPage() {
         <Search placeholder="사고싶은 상품을 입력하세요! " onSearch={onSearch} style={{ width: 600, height:60 }} />
       </TextBox>
 
-      <CardContainer>
-        {
-          items.map((a, i) => {
-            return <ItemCard items={items[i]}/>
-          })
-        }
-      </CardContainer>
+        {items && <CardContainer>
+          {
+            items.map((a, i, key={i}) => {
+              return <ItemCard items={items[i]} />
+            })
+          }
+        </CardContainer>}
+
     </Container>
   );
 }
