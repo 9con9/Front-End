@@ -3,30 +3,33 @@ import ItemCard from '../components/ItemCard';
 import { useEffect } from "react";
 import { useState } from 'react';
 import axios from 'axios';
-
-//antd - serch
 import { Input } from 'antd';
+import { CircleSpinner } from 'loplat-ui';
+
 const { Search } = Input;
 
-const startPy = (keyword) => {
-  axios('http://localhost:5000/search', {
-    method: "get",
-    params: {
-      value: keyword
-    },
-  })
-  .then((response) => {
-    console.log(response.data['status']);
-  })
-  .catch((error) => {
-    console.log(error);
-  });
-}
-
-const onSearch = value => {startPy(value)}
-//
-
 function ProductPage() {
+  //파이썬 실행 코드
+  const [loading, setLoading] = useState(false);
+  const startPy = async (keyword) => {
+    try {
+      setLoading(true)
+      const response = await axios('http://localhost:5000/search', {
+        method: "get",
+        params: {
+          value: keyword
+        }
+      });
+      console.log(response.data['status']);
+
+    } catch (error) {
+      console.log(error);
+    }
+    setLoading(false);
+  }
+  const onSearch = value => { startPy(value) }
+  //
+
   const [items, setItems] = useState()
 
   useEffect(() => {
@@ -35,7 +38,7 @@ function ProductPage() {
       .catch(function (error) {
         console.log(error);
       })
- })
+  })
 
   return (
     <Container>
@@ -58,12 +61,27 @@ function ProductPage() {
       </Categori>
 
       <TextBox>
-        <Search placeholder="사고싶은 상품을 입력하세요! " onSearch={onSearch} style={{ width: 600, height:60 }} />
+        <Search placeholder="사고싶은 상품을 입력하세요! " onSearch={onSearch} style={{ width: 600, height: 60 }} />
       </TextBox>
 
-        {items && <CardContainer>
+      <div>
+        {loading &&
+          <CenterDiv>
+            <CircleSpinner
+              aria-describedby="example"
+              aria-labelledby="example"
+              duration={1000}
+              scale={1}
+              zIndex={0}
+            />
+            <h3>검색 중입니다. 잠시만 기다려주세요.</h3>
+          </CenterDiv>}
+      </div>
+
+      {items &&
+        <CardContainer>
           {
-            items.map((a, i, key={i}) => {
+            items.map((a, i, key = { i }) => {
               return <ItemCard items={items[i]} />
             })
           }
@@ -133,4 +151,11 @@ const CategoriSpan = styled.span`
     font-size: 20px;
     box-shadow: inset 0 -1.5px 0 #b2bec3; 
     line-height: 30px;
+`
+
+const CenterDiv = styled.div`
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content: center;
 `
