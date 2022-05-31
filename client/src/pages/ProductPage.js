@@ -70,7 +70,7 @@ function ProductPage() {
             <CircleSpinner
               aria-describedby="example"
               aria-labelledby="example"
-              duration={1000}
+              duration={1300}
               scale={1}
               zIndex={0}
             />
