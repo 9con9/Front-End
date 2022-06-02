@@ -27,7 +27,7 @@ function MainNavigation() {
                     <Link to='mypage'><UserOutlined /></Link>
                 </li>
 
-                <li>
+                <li style={{color:"#e4e8eb"}}>
                     <Category></Category>
                 </li>
             </ul>
