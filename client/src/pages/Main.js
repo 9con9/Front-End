@@ -2,10 +2,13 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import 'fullpage.js/vendors/scrolloverflow';
 import ReactFullpage from '@fullpage/react-fullpage';
-import {Link ,Route, Routes } from 'react-router-dom';
-import ChartPage from './ChartPage';
-import ProductPage from './ProductPage'
-import IssuePage from './IssuePage';
+import {Link} from 'react-router-dom';
+import KakaoLogin from './kakaoLogin';
+
+const kakaoClientId = '6d8aab05f39333ee8d3ce15f91ced723';
+const kakaoRedirectUri = 'https://localhost:3000';
+const loginUri = `https://kauth.kakao.com/oauth/authorize?client_id=${kakaoClientId}\
+&redirect_uri=${kakaoRedirectUri}&response_type=code`;
 
 class Mainpage extends React.Component {
     onLeave(origin, destination, directicon) {
@@ -14,16 +17,17 @@ class Mainpage extends React.Component {
     afterLoad(origin, destination, direction) {
       console.log("After load: " + destination.index);
     }
+
     render() {
       return (
         <Container>
-          
             <ReactFullpage
               scrollOverflow={true}
               navigation={true}
               navigationPosition='right'
               onLeave={this.onLeave.bind(this)}
               afterLoad={this.afterLoad.bind(this)}
+
               render={({ state, fullpageApi }) => {
                 return (
                   <div id="fullpage-wrapper">
@@ -33,10 +37,13 @@ class Mainpage extends React.Component {
                       <div style={{position: "absolute", zIndex:5}}>
                         <p style={{
                           zIndex:5,marginTop:"-550px", fontWeight: 'bold',fontSize:"30px", color:"#e4e8eb", marginLeft:"160px"}}>
-                            리셀뷰어를 통해 최적의<p style={{fontSize: "30px"}}>중고상품을 확인해보세요</p>
-                        </p>
-                      </div>  
+                            리셀뷰어를 통해 최적의<p style={{fontSize: "30px"}}>중고상품을 확인해보세요</p></p>
+                        <div style={{marginLeft:"160px"}}>
+                          <KakaoLogin KAKAO_AUTH_URL={loginUri}/>
+                        </div>
+                      </div>
                     </div>
+
                     <div className="section">
                       <img src={process.env.PUBLIC_URL +'/img/pic3.jpg'} 
                       style={{width:"100%", height:"100%", background: 'url(/img/pic3.jpg)'}}/>
@@ -50,6 +57,7 @@ class Mainpage extends React.Component {
                             </Button>
                       </div>
                     </div>
+
                     <div className="section">
                         <img src={process.env.PUBLIC_URL +'/img/aurora.jpg'} 
                         style={{width:"100%", height:"100%", zIndex:0}}/>
@@ -63,10 +71,11 @@ class Mainpage extends React.Component {
                               </Button>
                         </div>
                     </div>
+
                     <div className="section">
                       <img src={process.env.PUBLIC_URL +'/img/pic4.jpg'}
                        style={{width:"100%", height:"100%"}}/>
-                      <div style={{position: "absolute", zInd기x:5}}>
+                      <div style={{position: "absolute", zIndex:5}}>
                         <p style={{
                           zIndex:5, fontWeight:'normal', marginTop:"-450px", fontWeight: 'bold', fontSize:"30px", color:"#e4e8eb", marginLeft:"620px"}}>
                             다양한 사기사례를<p style={{fontSize:"30px"}}>확인해 보세요.</p>
@@ -79,26 +88,17 @@ class Mainpage extends React.Component {
                   </div>
                 );
               }}
-            />
-          
+            />          
         </Container>  
       );
     }
   }
-
-<main>
-  <Route exact path = "/Chart" Component={ChartPage} />
-  <Route exact path='/Prodcut' Component={ProductPage}/>
-  <Route exact path='/issue' Component={IssuePage}/>
-</main>
-
 
   export default Mainpage
 
   const Container = styled.div`
   display: block;
   `
-
   export const Button = styled(Link)`
     color: white;
     border-radius: 50px;
