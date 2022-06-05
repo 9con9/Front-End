@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Card } from 'antd';
-import 'antd/dist/antd.css';
+
 
 import { FormOutlined, EnvironmentOutlined, CommentOutlined } from '@ant-design/icons';
 
