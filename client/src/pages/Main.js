@@ -22,11 +22,11 @@ class Mainpage extends React.Component {
             return (
               <div id="fullpage-wrapper">
                 <div className="section section1">
-                  <img src={process.env.PUBLIC_URL +'/img/pic5.jpg'} style={{width:"100%", height:"722px"}} />
+                  <img src={process.env.PUBLIC_URL +'/img/pic5.jpg'} style={{width:"100%", height:"100%"}} />
                 </div>
                 <div className="section">
                   <div className="slide">
-                    <img src={process.env.PUBLIC_URL +'/img/pic2.jpg'} style={{width:"100%", height:"722px"}}/>
+                    <img src={process.env.PUBLIC_URL +'/img/pic2.jpg'} style={{width:"100%", height:"100%"}}/>
                   </div>
                   <div className="slide">
                     <h3>설명2</h3>
@@ -36,7 +36,7 @@ class Mainpage extends React.Component {
                   </div>
                 </div>
                 <div className="section active">
-                  <img src={process.env.PUBLIC_URL +'/img/pic3.jpg'} style={{width:"100%", height:"722px"}}/>
+                  <img src={process.env.PUBLIC_URL +'/img/pic3.jpg'} style={{width:"100%", height:"100%"}}/>
                 </div>
               </div>
             );
