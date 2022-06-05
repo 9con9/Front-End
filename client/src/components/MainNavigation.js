@@ -4,6 +4,7 @@ import 'antd/dist/antd.css';
 import { RiseOutlined, UserOutlined } from '@ant-design/icons';
 import Category from './Category.js';
 
+
 function MainNavigation() {
     return (
         <header className={mainNav.header}>
@@ -27,9 +28,12 @@ function MainNavigation() {
                     <Link to='mypage'><UserOutlined /></Link>
                 </li>
 
-                <li>
+                <li style={{color:"black"}}>
+
                     <Category></Category>
                 </li>
+
+        
             </ul>
 
         </header>
