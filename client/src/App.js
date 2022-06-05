@@ -5,7 +5,9 @@ import MainPage from './pages/Main';
 import ProductPage from './pages/ProductPage';
 import ChartPage from './pages/ChartPage';
 import IssuePage from './pages/IssuePage';
-import MyPage from './pages/MyPage';
+import MyPage from './pages/mypage/MyPage';
+import MyProfile from './pages/mypage/MyProfile';
+import LookupList from './pages/mypage/LookupList';
 import PostView from './pages/post/PostView';
 import PostMain from './pages/post/PostMain';
 import ProfilePath from './components/profilePath'
@@ -33,6 +35,8 @@ function App() {
             <Route path='/product' element={<ProductPage />} />
             <Route path='/issue' element={<IssuePage />} />
             <Route path='/mypage' element={<MyPage />} />
+            <Route path='/myprofile' element={<MyProfile />} />
+            <Route path='/lookuplist' element={<LookupList />} />
             <Route exact path='/postView/:no' element={<PostView />} />       
             <Route exact path='/issue' element={<PostMain />} /> 
             <Route path="/profile" element={<ProfilePath />} />

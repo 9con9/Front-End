@@ -6,7 +6,7 @@ import { Layout, Menu } from 'antd';
 import { UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
 const { Content, Footer, Sider } = Layout;
 
-const Profile = () => (
+const MyProfile = () => (
   <Layout style={{height:"100vh"}}>
     <Sider
       breakpoint="lg"
@@ -36,7 +36,7 @@ const Profile = () => (
               <Link to='/mypage' style={{color:"white", marginTop:"40px", fontSize:"24px", textAlign:"center", fontWeight:"bold"}}>대시보드</Link>
             </li>
             <li style={{marginBottom:"40px"}}>
-              <Link to='/profile' style={{color:"#74b9ff", marginTop:"40px", fontSize:"24px", textAlign:"center", fontWeight:"bold"}}>프로필</Link>
+              <Link to='/myprofile' style={{color:"#74b9ff", marginTop:"40px", fontSize:"24px", textAlign:"center", fontWeight:"bold"}}>프로필</Link>
             </li>
             <li style={{marginBottom:"40px"}}>
               <Link to='/lookuplist' style={{color:"white", marginTop:"40px", fontSize:"24px", textAlign:"center", fontWeight:"bold"}}>조회 목록</Link>
@@ -77,4 +77,4 @@ const Profile = () => (
   </Layout>
 );
 
-export default Profile;
+export default MyProfile;
