@@ -14,7 +14,7 @@ function ProductPage() {
   const startPy = async (keyword) => {
     try {
       setLoading(true)
-      const response = await axios('http://localhost:5000/search', {
+      const response = await axios('http://127.0.0.1:5000/search', {
         method: "get",
         params: {
           value: keyword
@@ -61,7 +61,7 @@ function ProductPage() {
       </Categori>
 
       <TextBox>
-        <Search placeholder="사고싶은 상품을 입력하세요! " onSearch={onSearch} style={{ width: 600, height: 60 }} />
+        <Search placeholder="지역 상품명으로 검색하세요! " onSearch={onSearch} style={{ width: 600, height: 60 }} />
       </TextBox>
 
       <div>
