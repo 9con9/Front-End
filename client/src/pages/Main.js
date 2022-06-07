@@ -32,8 +32,8 @@ class Mainpage extends React.Component {
                 return (
                   <div id="fullpage-wrapper">
                     <div className='section'>
-                      <video data-autoPlay loop src={process.env.PUBLIC_URL +'/img/way.mp4'} 
-                      style={{width:"100%", height:"100%", background: 'url(/img/way.mp4)', filter:"brightness(50%)"}}/>
+                      <video data-autoPlay loop src={process.env.PUBLIC_URL +'/img/shop.mp4'} 
+                      style={{width:"100%", height:"100%", background: 'url(/img/shop.mp4)', filter:"brightness(50%)"}}/>
                       <div style={{position: "absolute", zIndex:5}}>
                         <p style={{
                           zIndex:5,marginTop:"-550px", fontWeight: 'bold',fontSize:"30px", color:"#e4e8eb", marginLeft:"160px"}}>
@@ -59,28 +59,28 @@ class Mainpage extends React.Component {
                     </div>
 
                     <div className="section">
-                        <img src={process.env.PUBLIC_URL +'/img/aurora.jpg'} 
+                        <img src={process.env.PUBLIC_URL +'/img/com.jpg'} 
                         style={{width:"100%", height:"100%", zIndex:0}}/>
                         <div style={{position: "absolute", zIndex:5}}>
                           <p style={{
-                            zIndex:5,fontWeight: 'normal', marginTop:"-450px", fontWeight: 'bold', fontSize:"30px", color:"#e4e8eb", marginLeft:"620px"}}>
+                            zIndex:5,fontWeight: 'normal', marginTop:"-625px", fontWeight: 'bold', fontSize:"30px", color:"black", marginLeft:"120px"}}>
                               한번에 중고제품가격을<p style={{fontSize:"30px"}}>비교해 보세요.</p>
                             </p>
-                              <Button to='/Product' style={{marginLeft:"620px", fontWeight: 'bold'}}>
+                              <Button to='/Product' style={{marginLeft:"120px", fontWeight: 'bold'}}>
                                 마켓 바로가기
                               </Button>
                         </div>
                     </div>
 
                     <div className="section">
-                      <img src={process.env.PUBLIC_URL +'/img/pic4.jpg'}
+                      <img src={process.env.PUBLIC_URL +'/img/lap.jpg'}
                        style={{width:"100%", height:"100%"}}/>
                       <div style={{position: "absolute", zIndex:5}}>
                         <p style={{
-                          zIndex:5, fontWeight:'normal', marginTop:"-450px", fontWeight: 'bold', fontSize:"30px", color:"#e4e8eb", marginLeft:"620px"}}>
+                          zIndex:5, fontWeight:'normal', marginTop:"-500px", fontWeight: 'bold', fontSize:"30px", color:"#black", marginLeft:"1100px"}}>
                             다양한 사기사례를<p style={{fontSize:"30px"}}>확인해 보세요.</p>
                         </p>
-                          <Button to='/issue' style={{marginLeft:"620px", fontWeight:"bold"}}>
+                          <Button to='/issue' style={{marginLeft:"1100px", fontWeight:"bold"}}>
                             이슈페이지 가기
                           </Button>
                       </div>
