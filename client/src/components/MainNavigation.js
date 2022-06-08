@@ -25,7 +25,7 @@ function MainNavigation() {
 
             <ul>
                 <li>
-                    <Link to='mypage'><UserOutlined /></Link>
+                    <Link to='/mypage'><UserOutlined /></Link>
                 </li>
 
                 <li style={{color:"black"}}>
@@ -39,5 +39,6 @@ function MainNavigation() {
         </header>
     );
 }
+
 
 export default MainNavigation
