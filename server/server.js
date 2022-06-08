@@ -42,7 +42,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/product/result', (req, res) => {
-    db.query('((SELECT * FROM condb.bunjang_usersells limit 10) union (SELECT * FROM condb.naver_usersells limit 10)) UNION (SELECT * FROM usersells LIMIT 10)',
+    db.query('((SELECT * FROM condb.bunjang limit 10) union (SELECT * FROM condb.joongna limit 10)) UNION (SELECT * FROM daagun LIMIT 10)',
         (err, result) => {
             if (err)
                 console.log(err);
@@ -51,3 +51,22 @@ app.get('/product/result', (req, res) => {
         });
 });
 
+app.get('/chart/result', (req, res) => {
+    db.query("SELECT json_object('y', round(AVG(price)),'x', upload_time ) as Data FROM condb.chart_usersells group by upload_time;",
+        (err, result) => {
+            if (err)
+                console.log(err);
+            else
+                res.send(result);
+        });
+});
+
+app.get('/chart/test', (req, res) => {
+    db.query("SELECT upload_time as 'x', price as 'y' FROM condb.chart_usersells group by upload_time order by upload_time;",
+        (err, result) => {
+            if (err)
+                console.log(err);
+            else
+                res.send(result);
+        });
+});
