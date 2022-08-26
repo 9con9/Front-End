@@ -6,39 +6,31 @@ import axios from 'axios';
 import { Input } from 'antd';
 import { CircleSpinner } from 'loplat-ui';
 
-const { Search } = Input;
-
 function ProductPage() {
-  //파이썬 실행 코드
+  const { Search } = Input;
   const [loading, setLoading] = useState(false);
+  const [items, setItems] = useState()
+  const onSearch = value => { startPy(value) }
+
   const startPy = async (keyword) => {
+    setLoading(true)
     try {
-      setLoading(true)
-      const response = await axios('http://127.0.0.1:5000/search', {
+      await axios('http://127.0.0.1:5000/search', {
         method: "get",
         params: {
           value: keyword
         }
-      });
-      console.log(response.data['status']);
-
+      })
+        .then(res => setItems(res.data))
+        .catch(function(error){
+          console.log(error);
+        })
     } catch (error) {
       console.log(error);
     }
     setLoading(false);
   }
-  const onSearch = value => { startPy(value) }
-  //
-
-  const [items, setItems] = useState()
-
-  useEffect(() => {
-    axios.get('http://localhost:3001/product/result')
-      .then(res => setItems(res.data))
-      .catch(function (error) {
-        console.log(error);
-      })
-  })
+  console.log(items)
 
   return (
     <Container>
@@ -47,23 +39,24 @@ function ProductPage() {
           <h3>카테고리</h3>
         </CategoriItem>
         <CategoriItem>
-          <CategoriSpan>전자기기</CategoriSpan>
-          <CategoriSpan>의류</CategoriSpan>
-          <CategoriSpan>악세서리</CategoriSpan>
-          <CategoriSpan>도서</CategoriSpan>
+          <CategoriSpan>디지털기기</CategoriSpan>
+          <CategoriSpan>가구/인테리어</CategoriSpan>
+          <CategoriSpan>유아용품</CategoriSpan>
+          <CategoriSpan>스포츠/레저</CategoriSpan>
         </CategoriItem>
         <CategoriItem>
+          <CategoriSpan>의류</CategoriSpan>
+          <CategoriSpan>도서/티켓/문구</CategoriSpan>
+          <CategoriSpan>반려동물</CategoriSpan>
           <CategoriSpan>미용</CategoriSpan>
-          <CategoriSpan>식품</CategoriSpan>
-          <CategoriSpan>가구</CategoriSpan>
-          <CategoriSpan>기타</CategoriSpan>
+          <CategoriSpan>콘솔게임</CategoriSpan>
         </CategoriItem>
       </Categori>
 
       <TextBox>
         <Search placeholder="지역 상품명으로 검색하세요! " onSearch={onSearch} style={{ width: 600, height: 60 }} />
       </TextBox>
-
+      
       <div>
         {loading &&
           <CenterDiv>
