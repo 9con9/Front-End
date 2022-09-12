@@ -3,12 +3,7 @@ import styled from 'styled-components';
 import 'fullpage.js/vendors/scrolloverflow';
 import ReactFullpage from '@fullpage/react-fullpage';
 import {Link} from 'react-router-dom';
-import KakaoLogin from './kakaoLogin';
 
-const kakaoClientId = '6d8aab05f39333ee8d3ce15f91ced723';
-const kakaoRedirectUri = 'https://localhost:3000';
-const loginUri = `https://kauth.kakao.com/oauth/authorize?client_id=${kakaoClientId}\
-&redirect_uri=${kakaoRedirectUri}&response_type=code`;
 
 class Mainpage extends React.Component {
     onLeave(origin, destination, directicon) {
@@ -32,15 +27,15 @@ class Mainpage extends React.Component {
                 return (
                   <div id="fullpage-wrapper">
                     <div className='section'>
-                      <video data-autoPlay loop src={process.env.PUBLIC_URL +'/img/shop.mp4'} 
-                      style={{width:"100%", height:"100%", background: 'url(/img/shop.mp4)', filter:"brightness(50%)"}}/>
+                      <img src={process.env.PUBLIC_URL +'/img/shop1.gif'} 
+                      style={{width:"100%", height:"100%", background: 'url(/img/shop1.gif)', filter:"brightness(50%)"}}/>
                       <div style={{position: "absolute", zIndex:5}}>
                         <p style={{
-                          zIndex:5,marginTop:"-550px", fontWeight: 'bold',fontSize:"30px", color:"#e4e8eb", marginLeft:"160px"}}>
+                          zIndex:5,marginTop:"-650px", fontWeight: 'bold',fontSize:"30px", color:"#e4e8eb", marginLeft:"200px"}}>
                             리셀뷰어를 통해 최적의<p style={{fontSize: "30px"}}>중고상품을 확인해보세요</p></p>
-                        <div style={{marginLeft:"160px"}}>
-                          <KakaoLogin KAKAO_AUTH_URL={loginUri}/>
-                        </div>
+                        <Button to='/login' style={{marginLeft:"200px", fontWeight:"bold"}}>
+                            로그인 하러가기
+                      </Button>
                       </div>
                     </div>
 
@@ -49,10 +44,10 @@ class Mainpage extends React.Component {
                       style={{width:"100%", height:"100%", background: 'url(/img/pic3.jpg)'}}/>
                       <div style={{position: "absolute", zIndex:5}}>
                         <p style={{
-                        zIndex:5, fontWeight:'normal',marginTop:"-450px", fontWeight: 'bold',fontSize:"30px", color:"#e4e8eb", marginLeft:"1050px"}}>
+                        zIndex:5, fontWeight:'normal',marginTop:"-650px", fontWeight: 'bold',fontSize:"30px", color:"#e4e8eb", marginLeft:"850px"}}>
                           차트를 보면서 제품의<p style={{fontSize: "30px"}}>시세를 분석해보세요.</p>
                         </p>
-                            <Button to='/Chart' onClick="activateLasers()" variant="primary"  size="medium"style={{marginLeft:"1050px", fontWeight: 'bold'}}>
+                            <Button to='/Chart' onClick="activateLasers()" variant="primary"  size="medium"style={{marginLeft:"850px", fontWeight: 'bold'}}>
                               차트 바로가기
                             </Button>
                       </div>
@@ -77,10 +72,10 @@ class Mainpage extends React.Component {
                        style={{width:"100%", height:"100%"}}/>
                       <div style={{position: "absolute", zIndex:5}}>
                         <p style={{
-                          zIndex:5, fontWeight:'normal', marginTop:"-500px", fontWeight: 'bold', fontSize:"30px", color:"#black", marginLeft:"1100px"}}>
+                          zIndex:5, fontWeight:'normal', marginTop:"-600px", fontWeight: 'bold', fontSize:"30px", color:"#black", marginLeft:"1400px"}}>
                             다양한 사기사례를<p style={{fontSize:"30px"}}>확인해 보세요.</p>
                         </p>
-                          <Button to='/issue' style={{marginLeft:"1100px", fontWeight:"bold"}}>
+                          <Button to='/issue' style={{marginLeft:"1400px", fontWeight:"   bold"}}>
                             이슈페이지 가기
                           </Button>
                       </div>

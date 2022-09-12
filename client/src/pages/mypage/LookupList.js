@@ -19,30 +19,25 @@ const LookupList = () => (
       }}
     >
       <div className="logo" />
-      <Menu
-        theme="dark"
-        mode="inline"
-        defaultSelectedKeys={['4']}
-        items={[UserOutlined, VideoCameraOutlined, UploadOutlined, UserOutlined].map(
-          (icon, index) => ({
-            key: String(index + 1),
-            icon: React.createElement(icon),
-            label: `nav ${index + 1}`,
-          }),
-        )}
-      /><div className='mypageMenu'>
+          <img src={process.env.PUBLIC_URL + '/img/UserIcon.png'}
+          style={{width:"200px", textAlign:"center", verticalAlign:"center"}}/> 
+      <div className='mypageMenu'>
           <ul>
             <li style={{marginBottom:"40px"}}>
-              <Link to='/mypage' style={{color:"white", marginTop:"40px", fontSize:"24px", textAlign:"center", fontWeight:"bold"}}>대시보드</Link>
+              <Link to='/mypage' style={{color:"black", marginTop:"40px", fontSize:"24px", textAlign:"center", fontWeight:"bold"}}>대시보드</Link>
             </li>
             <li style={{marginBottom:"40px"}}>
-              <Link to='/myprofile' style={{color:"white", marginTop:"40px", fontSize:"24px", textAlign:"center", fontWeight:"bold"}}>프로필</Link>
+              <Link to='/myprofile' style={{color:"black", marginTop:"40px", fontSize:"24px", textAlign:"center", fontWeight:"bold"}}>프로필</Link>
             </li>
             <li style={{marginBottom:"40px"}}>
-              <Link to='/lookuplist' style={{color:"#74b9ff", marginTop:"40px", fontSize:"24px", textAlign:"center", fontWeight:"bold"}}>조회 목록</Link>
+              <Link to='/lookuplist' style={{color:"black", marginTop:"40px", fontSize:"24px", textAlign:"center", fontWeight:"bold"}}>조회 목록</Link>
             </li>
+            <li style={{marginBottom:"40px"}}>
+              <Link to='/heartlist' style={{color:"black", marginTop:"40px", fontSize:"24px", textAlign:"center", fontWeight:"bold"}}>찜 목록</Link>
+            </li>
+            
             <li>
-              <Link to='/' style={{color:"white", marginTop:"40px", fontSize:"24px", textAlign:"center", fontWeight:"bold"}}>로그아웃</Link>
+              <Link to='/' style={{color:"black", marginTop:"40px", fontSize:"24px", textAlign:"center", fontWeight:"bold"}}>로그아웃</Link>
             </li>
           </ul>
         </div>

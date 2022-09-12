@@ -16,7 +16,7 @@ function ItemCard(props) {
                 <a href={props.items.link} target='blank'>
                     <ImageCard
                         style={{
-                            backgroundImage: `url(${props.items.img})`,
+                            backgroundImage: `url(${props.items.img_link})`,
                             backgroundPosition: 'center',
                             backgroundsize: 'cover',
                         }}>
@@ -31,7 +31,7 @@ function ItemCard(props) {
             </Meta>
 
             <TextBox>
-                <h3 style={{ marginBottom: -5 }}> <CommentOutlined /> {props.items.plafform}</h3>
+                <h3 style={{ marginBottom: -5 }}> <CommentOutlined /> {props.items.platform}</h3>
                 <h2>{props.items.price}원</h2>
                 <OutlierBox>
                     {props.items.outlier === 'high' && <h4 style={{color: "red"}}><ArrowUpOutlined />평균보다 비싸요</h4>}
@@ -40,7 +40,7 @@ function ItemCard(props) {
                 </OutlierBox>
                 <p><FormOutlined />  {props.items.name}</p>
                 <p><EnvironmentOutlined />  {props.items.place}</p>
-                <h4>{props.items.date}</h4>
+                <h4>{props.items.time}</h4>
             </TextBox>
         </Card>
     );

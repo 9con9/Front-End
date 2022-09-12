@@ -1,23 +1,62 @@
-.logo {
-    height: 40px;
-    margin: 16px;
-    background: rgba(255, 255, 255, 0.2);
-  }
-  
-  .site-layout-sub-header-background {
-    background: #fff;
-  }
-  
-  .site-layout-background {
-    background: #fff;
-  }
-    [data-theme="dark"] .site-layout-sub-header-background {
-      background: #141414;
-    }
-  .ant-menu.ant-menu-dark {
-      background: #282828;
-  }
+.site-layout-sub-header-background {
+  background: #fff;
+}
+
+.ant-layout-sider-children {
+  background: #e3e6ea;
+}
+
+.site-layout-background {
+  background: #fff;
+}
+
+[data-theme="dark"] .site-layout-sub-header-background {
+  background: #141414;
+}
+.ant-menu.ant-menu-dark {
+  background: #282828;
+}
 
 .mypageMenu {
     margin-top: 40px;
+}
+.dashboard ul {
+    position:absolute;
+    top: 45%;
+    bottom: 50%;
+}
+
+.dashboard ul li {
+    float:left;
+    margin-right:35px;
+}
+
+.dashboard ul li img {
+    width: 300px;
+}
+
+.site-layout-background table td {
+    border: 1px solid black;
+    padding-left: 40px;
+}
+
+.site-layout-background table {
+    border: 1px solid black;
+}
+
+#sex {
+    margin-left: 10px;
+}
+
+#tableEX {
+    width: 500px;
+    height: 300px;
+    margin-left: 15px;
+    margin-top: 10px;
+}
+#tableName {
+    border: 1px solid black;
+    padding-left: 0px;
+    font-weight: bold;
+    text-align: center;
 }
