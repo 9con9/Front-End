@@ -19,30 +19,24 @@ const MyPage = () => (
       }}
     >
       <div className="logo" />
-      <Menu
-        theme="dark"
-        mode="inline"
-        defaultSelectedKeys={['4']}
-        items={[UserOutlined, VideoCameraOutlined, UploadOutlined, UserOutlined].map(
-          (icon, index) => ({
-            key: String(index + 1),
-            icon: React.createElement(icon),
-            label: `nav ${index + 1}`,
-          }),
-        )}
-      /><div className='mypageMenu'>
+        <img src={process.env.PUBLIC_URL + '/img/UserIcon.png'}
+        style={{width:"200px", textAlign:"center", verticalAlign:"center"}}/> 
+      <div className='mypageMenu'>
           <ul>
             <li style={{marginBottom:"40px"}}>
-              <Link to='/mypage' style={{color:"#74b9ff", marginTop:"40px", fontSize:"24px", textAlign:"center", fontWeight:"bold"}}>대시보드</Link>
+              <Link to='/mypage' style={{color:"black", marginTop:"40px", fontSize:"24px", textAlign:"center", fontWeight:"bold"}}>대시보드</Link>
             </li>
             <li style={{marginBottom:"40px"}}>
-              <Link to='/myprofile' style={{color:"white", marginTop:"40px", fontSize:"24px", textAlign:"center", fontWeight:"bold"}}>프로필</Link>
+              <Link to='/myprofile' style={{color:"black", marginTop:"40px", fontSize:"24px", textAlign:"center", fontWeight:"bold"}}>프로필</Link>
             </li>
             <li style={{marginBottom:"40px"}}>
-              <Link to='/lookuplist' style={{color:"white", marginTop:"40px", fontSize:"24px", textAlign:"center", fontWeight:"bold"}}>조회 목록</Link>
+              <Link to='/lookuplist' style={{color:"black", marginTop:"40px", fontSize:"24px", textAlign:"center", fontWeight:"bold"}}>조회 목록</Link>
+            </li>
+            <li style={{marginBottom:"40px"}}>
+              <Link to='/heartlist' style={{color:"black", marginTop:"40px", fontSize:"24px", textAlign:"center", fontWeight:"bold"}}>찜 목록</Link>
             </li>
             <li>
-              <Link to='/' style={{color:"white", marginTop:"40px", fontSize:"24px", textAlign:"center", fontWeight:"bold"}}>로그아웃</Link>
+              <Link to='/' style={{color:"black", marginTop:"40px", fontSize:"24px", textAlign:"center", fontWeight:"bold"}}>로그아웃</Link>
             </li>
           </ul>
         </div>
@@ -52,6 +46,7 @@ const MyPage = () => (
         style={{
           margin: '24px 16px 0',
           height: '80%',
+          
         }}
       ><h3 style={{marginLeft:"20px", marginTop:"20px", marginBottom:"40px", fontSize:"40px", 
                    color:"black", textAlign:"left"}}><b>대시보드</b></h3>
@@ -60,10 +55,35 @@ const MyPage = () => (
           style={{
             padding: 24,
             minHeight: 360,
-            height: '80%'
+            height: '100%'
           }}
         >
-          content
+          <div className="dashboard" style={{height:"560px"}}>
+          
+            <ul style={{listStyle:"none"}}>
+              <li style={{textAlign:"center"}}>
+                <Link to='/myProfile'><img src={process.env.PUBLIC_URL + '/img/profile.png'} style={{border:'1px solid black'}}/></Link>
+                <br></br><br></br>
+                <Link to='/myProfile'>내 프로필</Link>
+                
+              </li>
+              <li style={{textAlign:"center"}}>
+                <Link to='/lookupList'><img src={process.env.PUBLIC_URL + '/img/searchList.png'} style={{border:'1px solid black'}}/></Link>
+                <br></br><br></br>
+                <Link to='/lookupList'>조회 목록</Link>
+              </li>
+              <li style={{textAlign:"center"}}>
+                <Link to='/heartlist'><img src={process.env.PUBLIC_URL + '/img/shopping.png'} style={{border:'1px solid black'}}/></Link>
+                <br></br><br></br>
+                <Link to='/heartlist'>찜 목록</Link>
+              </li>
+              <li style={{textAlign:"center"}}>
+                <Link to='/issue'><img src={process.env.PUBLIC_URL + '/img/consultant.png'} style={{border:'1px solid black'}}/></Link>
+                <br></br><br></br>
+                <Link to='/issue'>고객센터</Link>
+              </li>
+            </ul>
+          </div>
         </div>
       </Content>
       <Footer
