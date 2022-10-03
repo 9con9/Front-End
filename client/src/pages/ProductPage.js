@@ -7,11 +7,15 @@ import { CircleSpinner } from 'loplat-ui';
 import { SearchOutlined, QuestionCircleOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 import {Modal} from 'antd';
+import { Select } from 'antd';
+const { Option } = Select;
 
 function ProductPage() {
   const { Search } = Input;
   const [loading, setLoading] = useState(false);
-  const [items, setItems] = useState()
+  const [items, setItems] = useState([]);
+  const [copyItems, setCopyItems] = useState([]);
+
 
   //버튼 온클릭
   //categoly = ["디지털기기", "가구/인테리어", "유아용품", "스포츠/레저", "의류", "도서/티켓/문구", "악기", "반려동물", "미용", "콘솔게임"]
@@ -37,7 +41,10 @@ function ProductPage() {
           value: keyword
         }
       })
-        .then(res => setItems(res.data))
+        .then(res => {
+          setItems(res.data);
+          setCopyItems(res.data);
+        })
         .catch(function(error){
           console.log(error);
         })
@@ -46,7 +53,7 @@ function ProductPage() {
     }
     setLoading(false);
   }
-  console.log(items)
+  console.log(copyItems);
 
   //Modal
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -59,6 +66,35 @@ function ProductPage() {
   const handleCancel = () => {
     setIsModalVisible(false);
   };
+
+  //필터
+  const handleChange = (value) => {
+    console.log(`selected ${value}`);
+    filterItems(value);
+  };
+
+  const filterItems = (i) => {
+    if (items) {
+      if (i === "전체") {
+        setCopyItems(items);
+      }
+      else if (i === "당근") {
+        setCopyItems(items.filter((i) =>
+          i.platform.includes("당근")
+        ))
+      }
+      else if (i === "번개") {
+        setCopyItems(items.filter((i) =>
+          i.platform.includes("번개")
+        ))
+      }
+      else if (i === "중고") {
+        setCopyItems(items.filter((i) =>
+          i.platform.includes("중고")
+        ))
+      }
+    }
+  }
 
   return (
     <Container>
@@ -95,11 +131,25 @@ function ProductPage() {
           <Button onClick={consoleGame} type="ghost" icon={<SearchOutlined />}>콘솔게임</Button>
         </CategoriItem>
       </Categori>
-
-      <TextBox>
-        <Search placeholder="지역 상품명으로 검색하세요! " onSearch={onSearch} style={{ width: 600, height: 60 }} />
-      </TextBox>
       
+      <TextBox>
+        <Search placeholder="지역 상품명으로 검색하세요! " onSearch={onSearch} style={{ width: 600, height: 60, marginTop:"25px" }} />
+        <Select
+          defaultValue="전체 보기"
+          style={{
+            width: 120,
+            height:35,
+            marginLeft:15,
+          }}
+          onChange={handleChange}
+        >
+          <Option value="전체">전체 보기</Option>
+          <Option value="당근">당근마켓</Option>
+          <Option value="번개">번개장터</Option>
+          <Option value="중고">중고나라</Option>
+        </Select>
+      </TextBox>
+
       <div>
         {loading &&
           <CenterDiv>
@@ -117,8 +167,8 @@ function ProductPage() {
       {items &&
         <CardContainer>
           {
-            items.map((a, i, key = { i }) => {
-              return <ItemCard items={items[i]} />
+            copyItems.map((a, i, key = { i }) => {
+              return <ItemCard items={copyItems[i]} />
             })
           }
         </CardContainer>}

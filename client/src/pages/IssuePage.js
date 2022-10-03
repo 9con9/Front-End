@@ -14,17 +14,14 @@ function IssuePage() {
                 </a>
             </LogoBox>
             <br></br><br></br><br></br><br></br>
-            <hr style={{size:"10px", width:"75%", color:'#e1e2e3'}}></hr>
+            <UnderLine />
 
-            <div style={{width: "100%", marginTop:"100px" , marginBottom:"50px"}}>
+            <div style={{width: "100%", marginTop:"80px"}}>
                 <PostMain />
                 <br></br><br></br><br></br><br></br><br></br>
-                <hr style={{size:"10px", width:"75%", color:'#e1e2e3'}}></hr>
-            </div>
-            {/* <div style={{marginTop:"100px", textAlign:"center"}}>
-                <h1>중고거래 사기 뉴스</h1>
-            </div> */}
-            <h2 style={{marginTop:"100px", textAlign:"center"}}>중고거래 사기 뉴스</h2> 
+                <UnderLine />
+            </div> 
+            <h2 style={{marginTop:"80px", textAlign:"center"}}>중고거래 사기 뉴스</h2> 
 
             <NewsBox>
                 <Card
@@ -116,4 +113,12 @@ const NewsBox = styled.div`
   align-items: center;
   justify-content: center;
   margin-top: 50px;
+  margin-left: 10%;
+  margin-right: 10%;
+`
+
+const UnderLine = styled.hr`
+    size: 10px;
+    width: 80%;
+    border-top: 3px rgba(232,232,232);
 `
