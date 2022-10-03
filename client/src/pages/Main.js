@@ -4,7 +4,6 @@ import 'fullpage.js/vendors/scrolloverflow';
 import ReactFullpage from '@fullpage/react-fullpage';
 import {Link} from 'react-router-dom';
 
-
 class Mainpage extends React.Component {
     onLeave(origin, destination, directicon) {
       console.log("Leaving section " + origin.index);
@@ -27,8 +26,8 @@ class Mainpage extends React.Component {
                 return (
                   <div id="fullpage-wrapper">
                     <div className='section'>
-                      <img src={process.env.PUBLIC_URL +'/img/shop1.gif'} 
-                      style={{width:"100%", height:"100%", background: 'url(/img/shop1.gif)', filter:"brightness(50%)"}}/>
+                      <img src={process.env.PUBLIC_URL +'/img/shop0.gif'} 
+                      style={{width:"100%", height:"100%", background: 'url(/img/shop1.gif)', filter:"brightness(40%)"}}/>
                       <div style={{position: "absolute", zIndex:5}}>
                         <p style={{
                           zIndex:5,marginTop:"-650px", fontWeight: 'bold',fontSize:"30px", color:"#e4e8eb", marginLeft:"200px"}}>
@@ -42,14 +41,15 @@ class Mainpage extends React.Component {
                     <div className="section">
                       <img src={process.env.PUBLIC_URL +'/img/pic3.jpg'} 
                       style={{width:"100%", height:"100%", background: 'url(/img/pic3.jpg)'}}/>
-                      <div style={{position: "absolute", zIndex:5}}>
+                      <div style={{position: "absolute", zIndex:5, marginLeft:"50%"}}>
                         <p style={{
-                        zIndex:5, fontWeight:'normal',marginTop:"-650px", fontWeight: 'bold',fontSize:"30px", color:"#e4e8eb", marginLeft:"850px"}}>
+                        zIndex:5,marginTop:"-650px", fontWeight: 'bold',fontSize:"30px", color:"#e4e8eb", textAlign:"right", justifycontent: "flex-end"}}>
                           차트를 보면서 제품의<p style={{fontSize: "30px"}}>시세를 분석해보세요.</p>
-                        </p>
-                            <Button to='/Chart' onClick="activateLasers()" variant="primary"  size="medium"style={{marginLeft:"850px", fontWeight: 'bold'}}>
+                        
+                            <Button to='/Chart' onClick="activateLasers()" variant="primary"  size="medium"style={{fontWeight: 'bold'}}>
                               차트 바로가기
                             </Button>
+                            </p>
                       </div>
                     </div>
 
@@ -70,14 +70,14 @@ class Mainpage extends React.Component {
                     <div className="section">
                       <img src={process.env.PUBLIC_URL +'/img/lap.jpg'}
                        style={{width:"100%", height:"100%"}}/>
-                      <div style={{position: "absolute", zIndex:5}}>
+                      <div style={{position: "absolute", zIndex:5, marginLeft:"75%"}}>
                         <p style={{
-                          zIndex:5, fontWeight:'normal', marginTop:"-600px", fontWeight: 'bold', fontSize:"30px", color:"#black", marginLeft:"1400px"}}>
+                          zIndex:5, fontWeight:'normal', marginTop:"-600px", fontWeight: 'bold', fontSize:"30px", color:"#black", justifycontent: "flex-end"}}>
                             다양한 사기사례를<p style={{fontSize:"30px"}}>확인해 보세요.</p>
-                        </p>
-                          <Button to='/issue' style={{marginLeft:"1400px", fontWeight:"   bold"}}>
+                          <Button to='/issue'>
                             이슈페이지 가기
                           </Button>
+                          </p>
                       </div>
                     </div>
                   </div>
