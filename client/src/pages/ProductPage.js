@@ -4,8 +4,9 @@ import { useState } from 'react';
 import axios from 'axios';
 import { Input } from 'antd';
 import { CircleSpinner } from 'loplat-ui';
-import { SearchOutlined } from '@ant-design/icons';
+import { SearchOutlined, QuestionCircleOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
+import {Modal} from 'antd';
 
 function ProductPage() {
   const { Search } = Input;
@@ -47,12 +48,38 @@ function ProductPage() {
   }
   console.log(items)
 
+  //Modal
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
   return (
     <Container>
       <Categori>
+        <Modal title="정보 및 주의사항" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel} >
+          <p style={{ marginTop: '1%' }}> 지역 상품명으로 찾으시는 중고 상품을 검색해보세요! </p>
+          <br/>
+          <p>당근 마켓, 번개장터, 중고나라 3개의 플랫폼이 모두 동시에 검색됩니다.</p>
+          <br/>
+          <p>가격이 평균보다 너무 높거나 낮다면 주의하세요.</p>
+          <br/>
+          <p>검색까지 <sapn style={{color:'red'}}>약 40초의 </sapn>시간이 소요되며 페이지를 이동해서는 안 됩니다.</p>
+        </Modal >
+
         <CategoriItem>
-          <h3>추천 검색 카테고리</h3>
+          <h3>
+            <QuestionCircleOutlined style={{ fontSize: '20px', color: '#08c', marginRight:'5px'}} onClick={showModal} />
+            추천 검색 카테고리
+          </h3>
         </CategoriItem>
+
         <CategoriItem>
           <Button onClick={digitalDevices} type="ghost" icon={<SearchOutlined />}>디지털기기</Button>
           <Button onClick={interior} type="ghost" icon={<SearchOutlined />}>가구/인테리어</Button>

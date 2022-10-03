@@ -5,6 +5,8 @@ import LineChart from '../components/LineChart';
 import axios from 'axios';
 import { Input } from 'antd';
 import { CircleSpinner } from 'loplat-ui';
+import { QuestionCircleOutlined } from '@ant-design/icons';
+import {Modal} from 'antd';
 
 const { Search } = Input;
 
@@ -38,12 +40,36 @@ function ChartPage() {
     setLoading(false);
   }
 
+  //Modal
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
   return (
     <Container>
       <div>
         <TextBox>
+          <QuestionCircleOutlined style={{ fontSize: '25px', color: '#08c', marginRight:'15px', marginBottom:'27px' }} onClick={showModal}/>
           <Search placeholder="중고 물품을 검색하세요!" onSearch={onSearch} style={{ width: 600, height: 60 }} />
         </TextBox>
+
+        <Modal title="정보 및 주의사항" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel} >
+          <p style={{ marginTop: '1%' }}> 중고 상품의 최근 1주일 시세를 볼 수 있는 차트입니다. </p>
+          <br/>
+          <p> 시세는 가격의 이상치를 제거한 중앙 값입니다. </p>
+          <br/>
+          <p> 현재 당근 마켓, 번개장터, 중고나라 3개의 플랫폼이 동시에 검색됩니다.</p>
+          <br/>
+          <p>검색까지 <sapn style={{color:'red'}}>약 1분의 </sapn>시간이 소요되며 페이지를 이동해서는 안 됩니다.</p>
+          <br></br>
+        </Modal >
 
         <div>
         {loading &&
