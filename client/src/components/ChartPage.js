@@ -71,15 +71,15 @@ function ChartPage() {
           </p>
         </div>
       </div>
-    <center>
-      <div id='input' style={{display:"flex",  textAlign:"left", marginTop:"5%"}}>
-        <div id='mr' style={{font:"normal normal 800 24px/36px Pretendard", marginRight:"5%"}}>
-          <p id='text' style={{whiteSpace:"nowrap"}}>중고물품을 <br id='bo'></br>
+
+      <div style={{display:"flex", width:"100%", textAlign:"left", marginTop:"5%"}}>
+        <div style={{font:"normal normal 800 24px/36px Pretendard",marginLeft:"25%", marginRight:"10%"}}>
+          <p style={{whiteSpace:"nowrap"}}>중고물품을<br/>
           검색해보세요!</p>
         </div>
 
         <div>
-        <TextBox id='tb'>
+        <TextBox>
           <QuestionCircleOutlined style={{ fontSize: '25px', color: '#08c', marginRight:'15px', marginBottom:'27px' }} onClick={showModal}/>
           <Search placeholder="중고 물품을 검색하세요!" onSearch={onSearch} style={{ width: 600, height: 60 }} />
         </TextBox>
@@ -110,7 +110,6 @@ function ChartPage() {
         </div>
         </div>
       </div>
-      </center>
       <LineChart items={chartData}></LineChart>
     </Container>  
   );

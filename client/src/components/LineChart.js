@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import LineChartcss from './LineChart.css';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -71,13 +72,13 @@ export default function LineChart(props) {
     ]
   };
 
-  return <Box> <Line options={options} data={data} /> </Box>
+  return <Box id='box'> <Line options={options} data={data} /> </Box>
 }
 
 const Box = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 900px;
-  height: 500px;
+  width: 1200px;
+  height: 600px;
 `
