@@ -4,38 +4,30 @@ import 'antd/dist/antd.css';
 import { RiseOutlined, UserOutlined } from '@ant-design/icons';
 import Category from './Category.js';
 
-
 function MainNavigation() {
+
     return (
         <header className={mainNav.header}>
-            <div className={mainNav.logo}> <Link to=''>
-                < RiseOutlined /> 리셀뷰어 </Link></div>
+            <div className={mainNav.logo}> 
+                <Link to='/'><img className={mainNav.mainLogo} src={process.env.PUBLIC_URL + '/img/ResellViewer.png'}/></Link>
+            </div>
 
-            <ul>
+            <div className={mainNav.content}>
                 <li>
                     <Link to='/chart'>차트</Link>
                 </li>
                 <li>
                     <Link to='/product'>마켓</Link>
                 </li>
-                <li>
+                <li style={{paddingRight:"0px"}}>
                     <Link to='/issue'>이슈</Link>
                 </li>
-            </ul>
+            </div>
 
-            <ul>
-                <li>
-                    <Link to='/mypage'><UserOutlined /></Link>
-                </li>
-
-                <li style={{color:"black"}}>
-
-                    <Category></Category>
-                </li>
-
-        
-            </ul>
-
+            <div className={mainNav.etc}>
+                <li>로그인<span>&nbsp; ㅣ &nbsp;</span>고객센터</li>
+                <span className={mainNav.userIcon}><UserOutlined /></span>
+            </div>
         </header>
     );
 }

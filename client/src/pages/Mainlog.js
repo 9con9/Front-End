@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import 'fullpage.js/vendors/scrolloverflow';
 import ReactFullpage from '@fullpage/react-fullpage';
 import {Link} from 'react-router-dom';
 
@@ -31,7 +30,7 @@ class Mainlog extends React.Component {
                       style={{width:"100%", height:"100%", background: 'url(/img/shop1.gif)', filter:"brightness(50%)"}}/>
                       <div style={{position: "absolute", zIndex:5}}>
                         <p style={{
-                          zIndex:5,marginTop:"-650px", fontWeight: 'bold',fontSize:"30px", color:"#e4e8eb", marginLeft:"200px"}}>
+                          zIndex:5, fontWeight: 'bold',fontSize:"30px", color:"#e4e8eb", }}>
                             리셀뷰어를 통해 최적의<p style={{fontSize: "30px"}}>중고상품을 확인해보세요</p></p>
                         <Button to='/' style={{marginLeft:"200px", fontWeight:"bold"}}>
                             로그아웃
@@ -93,6 +92,7 @@ class Mainlog extends React.Component {
 
   const Container = styled.div`
   display: block;
+  flex-wrap: nowrap;
   `
   export const Button = styled(Link)`
     color: white;

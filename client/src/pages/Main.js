@@ -1,8 +1,11 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import 'fullpage.js/vendors/scrolloverflow';
+import Fade from 'react-reveal/Fade';
+import Jump from 'react-reveal/Jump';
+
 import ReactFullpage from '@fullpage/react-fullpage';
 import {Link} from 'react-router-dom';
+import maincss from './main.css';
 
 class Mainpage extends React.Component {
     onLeave(origin, destination, directicon) {
@@ -16,70 +19,110 @@ class Mainpage extends React.Component {
       return (
         <Container>
             <ReactFullpage
-              scrollOverflow={true}
-              navigation={true}
+         
+              navigation
               navigationPosition='right'
+          
               onLeave={this.onLeave.bind(this)}
               afterLoad={this.afterLoad.bind(this)}
-
+              slidesNavPosition
               render={({ state, fullpageApi }) => {
                 return (
                   <div id="fullpage-wrapper">
-                    <div className='section'>
-                      <img src={process.env.PUBLIC_URL +'/img/shop0.gif'} 
-                      style={{width:"100%", height:"100%", background: 'url(/img/shop1.gif)', filter:"brightness(40%)"}}/>
-                      <div style={{position: "absolute", zIndex:5}}>
-                        <p style={{
-                          zIndex:5,marginTop:"-650px", fontWeight: 'bold',fontSize:"30px", color:"#e4e8eb", marginLeft:"200px"}}>
-                            리셀뷰어를 통해 최적의<p style={{fontSize: "30px"}}>중고상품을 확인해보세요</p></p>
-                        <Button to='/login' style={{marginLeft:"200px", fontWeight:"bold"}}>
-                            로그인 하러가기
-                      </Button>
+                    <div className='section' id='first'>
+                      <div id='first_one'>
+                      <Fade left>
+                      <p className='first_section' id='fs'>최적의 중고상품을<br/>
+                      비교해주는 리셀뷰어
+                      </p>
+                      </Fade>
+                      </div>
+                      <Jump auto>
+                      <div className='circle'>
+                        <div className='circle2'>
+                        <div className='circle1'></div>
+                        </div>
+                      </div>
+                      </Jump>
+                
+                    </div>
+
+                    <div className="section" id='second'>
+                      <Fade left>
+                      <div id='second_one'>
+                        <p className='market'>MARKET.</p><br/><br/>
+                        <p className='second_section'><span>한번에 중고 제품</span>
+                          가격을 비교해 보세요.</p>
+                        <br/><br/>
+                        <p id='market_2'>
+                          검색어에 지역을 포함하여 검색하면<br/>
+                          지역에 맞는 상품들을 조회할 수 있습니다.
+                        </p>
+                        <a className='ja' href='/product' style={{color:"#191919", font:"normal normal bold 20px/56px Roboto"}}>자세히 보기 →</a>
+                      </div>
+                      </Fade>
+                      <div id='image2'>
+                        <Fade bottom>
+                        <img id='img1' src={process.env.PUBLIC_URL +'/img/cart.png'}/>
+                        </Fade>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <Fade top>
+                        <img id='img2' src={process.env.PUBLIC_URL +'/img/enter.png'}/>
+                        </Fade>
                       </div>
                     </div>
 
-                    <div className="section">
-                      <img src={process.env.PUBLIC_URL +'/img/pic3.jpg'} 
-                      style={{width:"100%", height:"100%", background: 'url(/img/pic3.jpg)'}}/>
-                      <div style={{position: "absolute", zIndex:5, marginLeft:"50%"}}>
-                        <p style={{
-                        zIndex:5,marginTop:"-650px", fontWeight: 'bold',fontSize:"30px", color:"#e4e8eb", textAlign:"right", justifycontent: "flex-end"}}>
-                          차트를 보면서 제품의<p style={{fontSize: "30px"}}>시세를 분석해보세요.</p>
-                        
-                            <Button to='/Chart' onClick="activateLasers()" variant="primary"  size="medium"style={{fontWeight: 'bold'}}>
-                              차트 바로가기
-                            </Button>
-                            </p>
-                      </div>
-                    </div>
-
-                    <div className="section">
-                        <img src={process.env.PUBLIC_URL +'/img/com.jpg'} 
-                        style={{width:"100%", height:"100%", zIndex:0}}/>
-                        <div style={{position: "absolute", zIndex:5}}>
-                          <p style={{
-                            zIndex:5,fontWeight: 'normal', marginTop:"-625px", fontWeight: 'bold', fontSize:"30px", color:"black", marginLeft:"120px"}}>
-                              한번에 중고제품가격을<p style={{fontSize:"30px"}}>비교해 보세요.</p>
-                            </p>
-                              <Button to='/Product' style={{marginLeft:"120px", fontWeight: 'bold'}}>
-                                마켓 바로가기
-                              </Button>
+                    <div className="section" id='third'>
+                        <div id='mar'>
+                          <Fade right>
+                          <div id='inner'>
+                          <p className='market'>CHART.</p><br/><br/>
+                          <p className='second_section'>차트를 보면서 제품의 <br/>
+                            시세를 분석해 보세요.</p>
+                          <p id='chart_2' style={{fontSize:"120%", font:"Pretendard", color:"color: #6C6C6C;"}}>
+                            최근 일주일간의 시세를 비교할 수 <br/>
+                            있도록 데이터를 시각화하여 보여줍니다.
+                          </p>
+                          <br/><br/>
+                          <a href='/chart' style={{color:"#191919", font:"normal normal bold 20px/56px Roboto"}}>자세히 보기 →</a>
+                          </div>
+                          </Fade>
                         </div>
                     </div>
 
-                    <div className="section">
-                      <img src={process.env.PUBLIC_URL +'/img/lap.jpg'}
-                       style={{width:"100%", height:"100%"}}/>
-                      <div style={{position: "absolute", zIndex:5, marginLeft:"75%"}}>
-                        <p style={{
-                          zIndex:5, fontWeight:'normal', marginTop:"-600px", fontWeight: 'bold', fontSize:"30px", color:"#black", justifycontent: "flex-end"}}>
-                            다양한 사기사례를<p style={{fontSize:"30px"}}>확인해 보세요.</p>
-                          <Button to='/issue'>
-                            이슈페이지 가기
-                          </Button>
-                          </p>
-                      </div>
+                    <div className="section" id='fourth'>
+                     <Fade top>
+                    <div id='fourth_one'>
+                        <p className='market'>ISSUE.</p><br/>
+                        <p className='fourth_section'>리셀뷰어에서 한 번에<br/>
+                          중고 거래 관련 정보를<br/>
+                          받아보세요.
+                        </p>
+                        <br/><br/>
+                        <p id='issue_2'>
+                          사기 피해를 방지하기 위해 중고 거래 사기<br/>
+                          수법 뉴스와 더치트 링크를 제공합니다.<br/>
+                        </p>
+                        <br className='bro'/><br className='bro'/><br className='bro'/><br/>
+                        <a href='/issue' style={{color:"#191919", font:"normal normal bold 20px/56px Roboto"}}>자세히 보기 →</a>
                     </div>
+                    </Fade>
+                    <Fade bottom>
+                      <div id='issue_3'>
+                        <img id='img0' src={process.env.PUBLIC_URL +'/img/is.jpg'}/>
+                      </div>
+                      </Fade>
+                    </div>
+                    <div className='section' id='footersec' style={{backgroundColor:"#F7F7F7"}}>
+                    <footer>                
+                      <div id='footset'>
+                        <p id='foot_1'>CONTACT US .</p>
+                        <p id='foot_2'>리셀뷰어에 궁금한 점을 문의해주세요</p>
+                        <br/>
+                        <p id='foot_3'>문의하기</p>
+                      </div>               
+                    </footer>
+                  </div>
                   </div>
                 );
               }}
@@ -92,26 +135,7 @@ class Mainpage extends React.Component {
   export default Mainpage
 
   const Container = styled.div`
-  display: block;
+    background-color: white;
+    display: block;
+    fontSize: 20px;
   `
-  export const Button = styled(Link)`
-    color: white;
-    border-radius: 50px;
-    background: ${({primary})=> (primary ? '#6A67CE' : '#232323')};
-    white-space: nowrap;
-    padding: ${({big})=> (big ? '14px 48px' : '12px 30px')};
-    color: ${({dark})=> (dark ? '#EEEEE' : '#fff')};
-    font-size: ${({fontBig})=> (fontBig ? '20px' : '16px')};
-    outline: none;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.3s ease-in-out;
-    text-decoration-line: none;
-    &:hover {
-        transition: all 0.3s ease-in-out;
-        background: ${({primary})=> (primary ? '#5B4FE8': '#f56217' )}; //뒤에꺼
-    }
-`
