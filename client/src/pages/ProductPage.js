@@ -17,7 +17,8 @@
 
 import styled from 'styled-components';
 import ItemCard from '../components/ItemCard.js';
-import AntDesign from '../components/AntDesign.css'
+import 'antd/dist/antd.css';
+import antd from '../components/AntDesign.module.css';
 import { useState } from 'react';
 import axios from 'axios';
 import { Input } from 'antd';
@@ -26,7 +27,6 @@ import { SearchOutlined, QuestionCircleOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 import {Modal} from 'antd';
 import { Select } from 'antd';
-
 
 const { Option } = Select;
 
@@ -273,34 +273,32 @@ function ProductPage() {
 
             <CategoriItem>
               {/* <InputWrapper placeholder="지역 상품명으로 검색하세요!" allowClear onSearch={onSearch} style={{width:"100%"}}/> */}
-              <Search placeholder="지역 상품명으로 검색하세요!" allowClear onSearch={onSearch} style={{width:"100%"}}/>
+              <CategoriSearch>
+                <Search id={antd.placeholder} placeholder="지역 상품명으로 검색하세요!" onSearch={onSearch} style={{width:"100%", border:"2px solid #3E3E3E"}}/>
+              </CategoriSearch>
               <CategoriButton>
-                <Button onClick={sports} type="ghost">#스포츠/레저</Button>
-                <Button onClick={switches} type="ghost">#스위치</Button>
-                <Button onClick={clothing} type="ghost">#의류</Button>
-                <Button onClick={beauty} type="ghost">#미용</Button>
-                <Button onClick={digitalDevices} type="ghost">#디지털기기</Button>
-                <Button onClick={furniture} type="ghost">#가구</Button>
+                <Button id={antd.button} onClick={sports} type="ghost">#스포츠/레저</Button>
+                <Button id={antd.button} onClick={switches} type="ghost">#스위치</Button>
+                <Button id={antd.button} onClick={clothing} type="ghost">#의류</Button>
+                <Button id={antd.button} onClick={beauty} type="ghost">#미용</Button>
+                <Button id={antd.button} onClick={digitalDevices} type="ghost">#디지털기기</Button>
+                <Button id={antd.button} onClick={furniture} type="ghost">#가구</Button>
               {/* borderWidth는 지우세요. */}
               {/* <CategoriItem style={{borderWidth:"0px"}}> */}
-                <Button onClick={baby} type="ghost">#유아용품</Button>
-                <Button onClick={performance} type="ghost">#공연</Button>
-                <Button onClick={book} type="ghost">#도서</Button>
-                <Button onClick={outdoor} type="ghost">#아웃도어</Button>
-                <Button onClick={interior} type="ghost">#인테리어</Button>
-                <Button onClick={supplies} type="ghost">#용품/공구</Button>
+                <Button id={antd.button} onClick={baby} type="ghost">#유아용품</Button>
+                <Button id={antd.button} onClick={performance} type="ghost">#공연</Button>
+                <Button id={antd.button} onClick={book} type="ghost">#도서</Button>
+                <Button id={antd.button} onClick={outdoor} type="ghost">#아웃도어</Button>
+                <Button id={antd.button} onClick={interior} type="ghost">#인테리어</Button>
+                <Button id={antd.button} onClick={supplies} type="ghost">#용품/공구</Button>
               </CategoriButton>
               {/* </CategoriItem> */}
               {/* borderWidth는 지우세요. */}
-              <CategoriItem style={{border:"3px solid black", padding:"0%"}}>
-                <Select
+              <CategoriItem style={{border:"3px solid black", padding:"0%", height:"59px"}}>
+                <Select style={{width:"219px", marginRight:"10px", fontSize:"30px"}}
                   defaultValue="전체"
-                  // style={{
-                  //   width: 219,
-                  // }}
                   onChange={handleChange}
                   // className={styles.customSelect}
-                  
                 >
                   <Option value="전체">전체</Option>
                   <Option value="당근">당근마켓</Option>
@@ -309,7 +307,7 @@ function ProductPage() {
                 </Select>
                 
                 {/* 여기는 데이터 가져올때 손좀 봐야 합니다. */}
-                <Select
+                <Select style={{width:"219px", marginRight:"10px", fontSize:"30px"}}
                   defaultValue="가격순"
                   // style={{
                   //   width: 285,
@@ -345,7 +343,7 @@ function ProductPage() {
         </Select>
       </TextBox> */}
 
-      {/* <div>
+      <div>
         {loading &&
           <CenterDiv>
             <CircleSpinner
@@ -357,7 +355,7 @@ function ProductPage() {
             />
             <h3>검색 중입니다. 잠시만 기다려주세요.</h3>
           </CenterDiv>}
-      </div> */}
+      </div>
 
       {items &&
         <CardContainer>
@@ -494,7 +492,11 @@ const CategoriItem = styled.div`
     padding: 0 5%;
   }
 `
-
+const CategoriSearch = styled.div`
+  width: 100%;
+  height: 71px;
+  /* border: 2px solid blue; */
+`
 const CategoriButton = styled.div`
   display:flex;
   flex-wrap: wrap;
@@ -525,13 +527,11 @@ const CategoriButton = styled.div`
     min-width: 370px;
     max-width: 370px;
   }
-
-  
 `
 
-// const CenterDiv = styled.div`
-//   display:flex;
-//   flex-direction: column;
-//   align-items:center;
-//   justify-content: center;
-// `
+const CenterDiv = styled.div`
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content: center;
+`

@@ -1,0 +1,107 @@
+.alser{
+   width: 100px;
+}
+.ser{
+    display: flex;
+    margin-left: -55%;
+    border-color: black;
+    width: 46vw;
+    margin-top: 2.5%;
+}
+
+.alser{
+    width: 15vw;
+    margin-left: -70%;
+}
+.si .ant-input-wrapper{
+    width: 49rem;
+}
+.ser .ant-btn{
+    height: 3rem;
+    width: 3rem;
+}
+
+.bo{
+    display: block;
+}
+.text{
+    margin-top: 10%;
+    margin-left: -280%;
+}
+.bro{
+    display: none;
+}
+#ha{
+    height: 67px;
+    width: 46vw;
+    border: 2px solid #3E3E3E;
+    border-right: none;
+}
+.qr{
+    margin-top: 3%;
+}
+@media(max-width:1360px){
+    #ha{
+        height: 55px;
+    }
+}
+
+@media(max-width:1280px){
+    .ant-input-wrapper {
+        width: 35rem;
+    }
+    .text{
+        margin-left: -180%;
+    }
+}
+@media(max-width:1000px){
+    .ant-input-wrapper {
+        width: 20rem;
+    }
+    .input{
+        margin-left: 15%;
+    }
+    .text{
+        margin-left: -150%;
+    }
+    #ha{
+        width: 40vw;
+    }
+}
+@media(max-width:800px){
+    .bro{
+        display: block;
+    }
+    .bo{
+        display: none;
+    }
+    .input{
+        flex-direction: row;
+        flex-wrap: wrap;    
+    }
+    .text{
+        text-align: center;
+        margin-left: 25%;
+    }
+    center{
+        margin-right: 15%;
+    }
+    .ser{
+        margin-left: -100%;
+        min-width: 280px;
+        margin-top: 80%;
+    }
+
+}
+
+@media(max-width:585px) {
+    #ha{
+        height: 43px;
+    }
+    .text{
+        margin-left: 10%;
+    }
+    .ser{
+        margin-left: -120%;
+    }
+}

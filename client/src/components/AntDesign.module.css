@@ -18,18 +18,18 @@ html {
 .ant-input-search .ant-input:focus {
     border-color: #191919;
 }
-
-/* .ant-select ant-select-single ant-select-show-arrow {
-    color: 2px solid #191919;
+ 
+/*.ant-select ant-select-single ant-select-show-arrow {
+    color: 10px solid #191919;
 } */
 
 @media screen and (min-width: 850px) {
     /* card component styling */
-    .ant-card ant-card-bordered {
+    #card {
         width: 330px;
         border-radius: 15px;
         border: 0;
-        background: transparent;
+        background: transparent; 
     }
     /* card image styling */
     .ant-card-body {
@@ -38,47 +38,51 @@ html {
 }
 @media screen and (max-width: 850px) {
     /* card component styling */
-    .ant-card ant-card-bordered {
-        width: 50%;
+    #card {
+        width: 174px;
+        border-radius: 15px;
+        border: 0;
+        background: transparent;
     }
     /* card image styling */
     .ant-card-body {
-        width: 50%;
+        width: 165px;
     }
 }
 
 @media screen and (min-width: 1360px) {
     /* search input */
-    .ant-input-affix-wrapper {
+    #placeholder {
         border: 2px solid #3E3E3E;
         border-right: none;
         height: 67px;
     }
     /* placeholder */
-    .ant-input {
+    #placeholder {
         font: normal normal 600 20px pretendard;
-        color: #797979;
-        margin-left: 10px;
+        color: #FFFFFF;
+        /* margin-left: 10px; */
     }
+
     /* category item button */
-    .ant-btn {
+    #button {
         height: 40px;
         color: #848484;
         border: 1px solid #D3D3D3;
         border-radius: 31px;
     }
     /* platform dropdown */
-    .ant-select {
+    :global .ant-select {
         width: 219px;
         margin-right: 10px;
     }
     /* platform dropdown height customize */
-    .ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
+    :global .ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
         height: 51px;
         padding-top: 9px;
     }
     /* platform dropdown font styling */
-    .ant-select-selection-item {
+    :global .ant-select-selection-item {
         font: normal normal 21px pretendard;
         color: #191919;
         letter-spacing: -0.53px;
@@ -90,14 +94,14 @@ html {
         color: black;
     }
     /* search input icon box */
-    .ant-btn-icon-only {
+    :global .ant-btn-icon-only {
         width: 67px;
         height: 67px;
         border: 2px solid #3E3E3E;
         border-left: none;
     }
     /* search input icon styling */
-    .ant-btn-icon-only > * {
+    :global .ant-btn-icon-only > * {
         font-size: 24px;
         color: #191919;
     }
@@ -105,55 +109,55 @@ html {
 
 @media screen and (min-width: 586px) and (max-width: 1360px) {
     /* search input */
-    .ant-input-affix-wrapper {
-        border: 2px solid #3E3E3E;
+    #placeholder {
+        /* border: 2px solid #3E3E3E; */
         border-right: none;
         height: 55px;
     }
     /* placeholder */
-    .ant-input {
+    #placeholder {
         font: normal normal 600 18px pretendard;
-        color: #797979;
+        color: #3E3E3E;
         margin-left: 8px;
     }
     /* category item button */
-    .ant-btn {
+    #button {
         font: normal normal 12px pretendard;
-        color: #848484;
-        border: 1px solid #D3D3D3;
+        color: #3E3E3E;
+        border: 1px solid #3E3E3E;
         border-radius: 31px;
     }
     /* platform dropdown */
-    .ant-select {
+    :global .ant-select {
         width: 175px;
         margin-right: 8px;
     }
     /* platform dropdown height customize */
-    .ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
+    :global .ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
         height: 41px;
         padding-top: 5px;
     }
     /* platform dropdown font styling */
-    .ant-select-selection-item {
+    :global .ant-select-selection-item {
         font: normal normal 16px pretendard;
         letter-spacing: -0.53px;
         color: #191919;
         margin-left: 10px;
     }
     /* platform dropdown arrow */
-    .ant-select-arrow {
+    :global .ant-select-arrow {
         font-size: 12px;
         color: black;
     }
     /* search input icon box */
-    .ant-btn-icon-only {
+    :global .ant-btn-icon-only {
         width: 55px;
         height: 55px;
-        border: 2px solid #3E3E3E;
+        /* border: 2px solid #3E3E3E; */
         border-left: none;
     }
     /* search input icon styling */
-    .ant-btn-icon-only > * {
+    :global .ant-btn-icon-only > * {
         font-size: 20px;
         color: #191919;
     }
@@ -161,60 +165,60 @@ html {
 
 @media screen and (max-width: 585px) {
     /* search input */
-    .ant-input-affix-wrapper {
+    #placeholder {
         border: 2px solid #3E3E3E;
         border-right: none;
         height: 43px;
     }
     /* placeholder */
-    .ant-input {
+    #placeholder {
         font: normal normal 600 18px pretendard;
         color: #797979;
         margin-left: 6px;
     }
     /* category item button */
-    .ant-btn {
+    #button {
         font: normal normal 12px pretendard;
         color: #848484;
         border: 1px solid #D3D3D3;
         border-radius: 31px;
     }
     /* platform dropdown */
-    .ant-select {
+    :global .ant-select {
         width: 140px;
         margin-right: 6px;
     }
     /* platform dropdown height customize */
-    .ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
+    :global .ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
         height: 31px;
         padding-top: 1px;
     }
     /* platform dropdown font styling */
-    .ant-select-selection-item {
+    :global .ant-select-selection-item {
         font: normal normal 16px pretendard;
         letter-spacing: -0.53px;
         color: #191919;
         margin-left: 6px;
     }
     /* platform dropdown arrow */
-    .ant-select-arrow {
+    :global .ant-select-arrow {
         font-size: 12px;
         color: black;
     }
     /* search input icon box */
-    .ant-btn-icon-only {
+    :global .ant-btn-icon-only {
         width: 43px;
         height: 43px;
         border: 2px solid #3E3E3E;
         border-left: none;
     }
     /* search input icon styling */
-    .ant-btn-icon-only > * {
+    :global .ant-btn-icon-only > * {
         font-size: 16px;
         color: #191919;
     }
 }
 
-.ant-btn-ghost {
+:global .ant-btn-ghost {
     color: #848484;
 }
