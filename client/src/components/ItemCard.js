@@ -1,3 +1,18 @@
+// const Dummy_Data = [
+//     {
+//       id: 0,
+//       img_link: "https://media.bunjang.co.kr/product/202022776_1_1665573167_w292.jpg",
+//       index: "3",
+//       link: "https://bunjang.co.kr/products/202022776?q=%EC%9D%B8%EC%B2%9C%20%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C%20%EC%97%90%EC%96%B44&ref=%EA%B2%80%EC%83%89%EA%B2%B0%EA%B3%BC",
+//       name: "[애플케어플러스] 아이패드 에어 4세대 와이파이 64gb 판매합니다",
+//       outlier: "normal",
+//       place: "인천광역시 남구 용현1,4동",
+//       platform: "번개 장터",
+//       price: "550000",
+//       time: "28분 전"
+//     }
+
+
 import styled from 'styled-components';
 import antd from './AntDesign.module.css';
 import 'antd/dist/antd.css';
@@ -5,6 +20,7 @@ import { Card } from 'antd';
 import { FormOutlined, EnvironmentOutlined, CommentOutlined, CheckOutlined, ArrowUpOutlined, ArrowDownOutlined } from '@ant-design/icons';
 import { transparent } from 'loplat-ui';
 const { Meta } = Card;
+
 
 function ItemCard(props) {
     
@@ -34,10 +50,14 @@ function ItemCard(props) {
             <Meta>
                 style={{ height: "150px" }}
             </Meta>
-
+            {/* {props.items.platform === '당근 마켓' && <img src={process.env.PUBLIC.URL + '/img/KarrotMarket.png}/>} */}
             <TextBox>
                 {/* <h3 style={{ marginBottom: -5}}> <CommentOutlined /> {props.items.platform}</h3> */}
-                <TextPrice>{props.items.price}원</TextPrice>
+                <TextPrice>{props.items.price}원
+                 {props.items.platform === '당근 마켓' && <PlatformImg><KarrotImg src={process.env.PUBLIC_URL + '/img/KarrotMarket.png'}/></PlatformImg>}
+                 {props.items.platform === '중고 나라' && <PlatformImg><JoongImg src={process.env.PUBLIC_URL + '/img/Joonggonara.png'}/></PlatformImg>}
+                 {props.items.platform === '번개 장터' && <PlatformImg><BGZTImg src={process.env.PUBLIC_URL + '/img/BGZT.png'}/></PlatformImg>}
+                </TextPrice>
                 {/* <FormOutlined /> */}
                 <TextTitle>{props.items.name}</TextTitle>
                 {/* <EnvironmentOutlined /> */}
@@ -67,20 +87,7 @@ const ImageCard = styled.div`
         width: 174px;
         height: 155px;
     }
-`;
-
-// const InnerBox = styled.div`
-//     width: 40px;
-//     height: 40px;
-//     border-radius:4px;
-// `;
-
-// const PlafformImg = styled.img`
-//     margin-top: 5px;
-//     margin-left: 5px;
-//     width: 40px;
-//     height: 40px;
-// `;
+`
 
 const TextBox = styled.div`
     @media screen and (min-width: 850px) {
@@ -93,7 +100,7 @@ const TextBox = styled.div`
         margin: 0 -24px;
         /* border: 2px solid yellow; */
     }
-`;
+`
 
 const OutlierBox = styled.div`
     padding: 2px 0 0 2px;
@@ -233,5 +240,42 @@ const TextInfo = styled.p`
         font: normal normal 10px pretendard;
         letter-spacing: -0.4px;
         color: #767676;
+    }
+`
+
+const PlatformImg = styled.div`
+    display: inline;
+`
+
+const KarrotImg = styled.img`
+    width: 25px;
+    vertical-align: top;
+    margin-left: 50%;
+
+    @media screen and (max-width: 850px) {
+        width: 16px;
+        margin-left: 46%;
+    }
+`
+
+const JoongImg = styled.img`
+    width: 40px;
+    vertical-align: top; 
+    margin-left: 50%;
+
+    @media screen and (max-width: 850px) {
+        width: 27px;
+        margin-left: 40%;
+    }
+`
+
+const BGZTImg = styled.img`
+    width: 28px; 
+    vertical-Align: top;
+    margin-left: 50%;
+    
+    @media screen and (max-width: 850px) {
+        width: 19px;
+        margin-left: 43%;
     }
 `
