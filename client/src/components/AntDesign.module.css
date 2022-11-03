@@ -53,15 +53,12 @@ html {
 @media screen and (min-width: 1360px) {
     /* search input */
     #placeholder {
-        border: 2px solid #3E3E3E;
+        border: 1px solid #3E3E3E;
         border-right: none;
         height: 67px;
-    }
-    /* placeholder */
-    #placeholder {
+        color: #797979;
         font: normal normal 600 20px pretendard;
-        color: #FFFFFF;
-        /* margin-left: 10px; */
+        padding-left: 25px;
     }
 
     /* category item button */
@@ -75,6 +72,7 @@ html {
     :global .ant-select {
         width: 219px;
         margin-right: 10px;
+        border: 1px solid #191919;
     }
     /* platform dropdown height customize */
     :global .ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
@@ -89,7 +87,7 @@ html {
         margin-left: 10px;
     }
     /* platform dropdown arrow */
-    .ant-select-arrow {
+    :global .ant-select-arrow {
         font-size: 15px;
         color: black;
     }
@@ -97,7 +95,7 @@ html {
     :global .ant-btn-icon-only {
         width: 67px;
         height: 67px;
-        border: 2px solid #3E3E3E;
+        border: 1px solid #3E3E3E;
         border-left: none;
     }
     /* search input icon styling */
@@ -108,30 +106,31 @@ html {
 }
 
 @media screen and (min-width: 586px) and (max-width: 1360px) {
-    /* search input */
+    /* search-input */
     #placeholder {
-        /* border: 2px solid #3E3E3E; */
+        border: 1px solid #3E3E3E;
         border-right: none;
         height: 55px;
-    }
-    /* placeholder */
-    #placeholder {
         font: normal normal 600 18px pretendard;
-        color: #3E3E3E;
-        margin-left: 8px;
+        color: #797979;
+        padding-left: 25px;
     }
+    
     /* category item button */
     #button {
         font: normal normal 12px pretendard;
-        color: #3E3E3E;
-        border: 1px solid #3E3E3E;
+        color: #848484;
+        border: 1px solid #D3D3D3;
         border-radius: 31px;
     }
+
     /* platform dropdown */
     :global .ant-select {
         width: 175px;
         margin-right: 8px;
+        border: 1px solid #191919;
     }
+
     /* platform dropdown height customize */
     :global .ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
         height: 41px;
@@ -153,7 +152,7 @@ html {
     :global .ant-btn-icon-only {
         width: 55px;
         height: 55px;
-        /* border: 2px solid #3E3E3E; */
+        border: 1px solid #3E3E3E;
         border-left: none;
     }
     /* search input icon styling */
@@ -166,15 +165,12 @@ html {
 @media screen and (max-width: 585px) {
     /* search input */
     #placeholder {
-        border: 2px solid #3E3E3E;
+        border: 1px solid #3E3E3E;
         border-right: none;
         height: 43px;
-    }
-    /* placeholder */
-    #placeholder {
         font: normal normal 600 18px pretendard;
         color: #797979;
-        margin-left: 6px;
+        padding-left: 21px;
     }
     /* category item button */
     #button {
@@ -187,6 +183,7 @@ html {
     :global .ant-select {
         width: 140px;
         margin-right: 6px;
+        border: 1px solid #191919;
     }
     /* platform dropdown height customize */
     :global .ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
@@ -209,7 +206,7 @@ html {
     :global .ant-btn-icon-only {
         width: 43px;
         height: 43px;
-        border: 2px solid #3E3E3E;
+        border: 1px solid #3E3E3E;
         border-left: none;
     }
     /* search input icon styling */

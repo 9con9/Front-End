@@ -99,8 +99,9 @@ useEffect(() => {
             <br/><br/>
             <Button className={lc.btn} type="primary" block href='/signup' style={{backgroundColor:"white", color:"black"}}>회원가입</Button>
           </div>
-          <div>
-            <p>SNS 간편 로그인</p>
+        <br/><br/>
+          <div style={{width:"100%", textAlign:"center"}}>
+            <p style={{fontFamily:"Pretendard", fontSize:"20px", fontWeight:"500"}}>SNS 간편 로그인</p>
           </div>
           </Form>
       </Container>

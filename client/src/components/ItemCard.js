@@ -37,14 +37,14 @@ function ItemCard(props) {
 
             <TextBox>
                 {/* <h3 style={{ marginBottom: -5}}> <CommentOutlined /> {props.items.platform}</h3> */}
-                <TextPrice>{props.items.price}</TextPrice>
+                <TextPrice>{props.items.price}원</TextPrice>
                 {/* <FormOutlined /> */}
                 <TextTitle>{props.items.name}</TextTitle>
                 {/* <EnvironmentOutlined /> */}
                 <TextInfo>{props.items.place} 
                 {
                     props.items.place.length !== 0
-                    ? <span>&nbsp; | &nbsp;</span>
+                    ? <span style={{display:"inline"}}>&nbsp; | &nbsp;</span>
                     : null
                 }
                 {props.items.time}

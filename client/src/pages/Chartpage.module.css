@@ -1,5 +1,9 @@
+
 .alser{
    width: 100px;
+}
+.cone{
+    top: 50%;
 }
 .ser{
     display: flex;
@@ -7,11 +11,13 @@
     border-color: black;
     width: 46vw;
     margin-top: 2.5%;
+    max-width: 100px;
 }
 
 .alser{
     width: 15vw;
     margin-left: -70%;
+    max-width: 15vw;
 }
 .si .ant-input-wrapper{
     width: 49rem;
@@ -34,8 +40,9 @@
 #ha{
     height: 67px;
     width: 46vw;
-    border: 2px solid #3E3E3E;
+    border: 1px solid #3E3E3E;
     border-right: none;
+    max-width: 1000px;
 }
 .qr{
     margin-top: 3%;
@@ -54,6 +61,13 @@
         margin-left: -180%;
     }
 }
+
+@media(max-width:1160px){
+    .cone{
+        top: 10%;
+    }
+}
+
 @media(max-width:1000px){
     .ant-input-wrapper {
         width: 20rem;
@@ -102,6 +116,19 @@
         margin-left: 10%;
     }
     .ser{
-        margin-left: -120%;
+        margin-left: -140%;
+    }
+    #ha{
+        margin-left: 10px;
+    }
+}
+
+@media(max-width:501px){
+    #ha{
+        margin-left: 20px;
+    }
+    .ser{
+        min-width: 60%;
+        margin-top: 100%;
     }
 }

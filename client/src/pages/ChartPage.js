@@ -55,13 +55,13 @@ function ChartPage() {
   };
 
   return (
-    <Container>
+    <Container id={chartcss.con}>
 
       <div style={{position:"relative", alignItems:"center"}}>
         <div>
-          <img  src={process.env.PUBLIC_URL +'/img/chart1.jpg'}/>
+          <img src={process.env.PUBLIC_URL +'/img/chart1.jpg'}/>
         </div>
-        <div id='chart_one' style={{position:"absolute", width:"100%", top:"50%", textAlign:"center"}}>
+        <div className={chartcss.cone} style={{position:"absolute", width:"100%", top:"50%", textAlign:"center", height:"100vw"}}>
           <h2 style={{font:"normal normal 800 3rem/2rem Pretendard", color:"white"}}>
             차트
           </h2>
