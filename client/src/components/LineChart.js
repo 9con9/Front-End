@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import LineChartcss from './LineChart.css';
+import  './LineChart.css';
 import {
   Chart as ChartJS,
   CategoryScale,

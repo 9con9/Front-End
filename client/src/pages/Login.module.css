@@ -1,0 +1,37 @@
+.userID{
+    height: 45px;
+}
+.btn{
+    height: 40px;
+}
+
+@media(max-width:1280px){ 
+    .con{
+        margin-left: 35%;
+        margin-top: 20%;
+    }
+}
+@media(max-width:900px){
+    .con{
+        margin-left: 30%;
+        margin-top: 30%;
+    }
+}
+@media(max-width:750px){
+    .con{
+        margin-left: 25%;
+        margin-top: 30%;
+    }
+}
+@media(max-width:600px){
+    .con{
+        margin-left: 15%;
+        margin-top: 35%;
+    }
+}
+@media(max-width:600px){
+    .con{
+        margin-left: 10%;
+        margin-top: 35%;
+    }
+}

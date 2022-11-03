@@ -3,7 +3,7 @@ import styled from "styled-components";
 import {Link} from 'react-router-dom';
 import { Button } from 'antd';
 import { Input, Space, Form } from 'antd';
-import signupcss from './Signup.css'
+import sc from './Signup.module.css'
 import axios from 'axios';
 
 function SignupPage(props){
@@ -107,7 +107,7 @@ function SignupPage(props){
 
 
     return(
-      <Container>
+      <Container className={sc.con}>
         <Form form={form}
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
@@ -115,8 +115,8 @@ function SignupPage(props){
           remember: true,
       }}
         >
-          <div>
-            <img src={process.env.PUBLIC_URL +'/img/logo.png'}/>
+          <div style={{textAlign:"center"}}>
+            <img src={process.env.PUBLIC_URL +'/img/ResellViewer.png'}/>
             <br/><br/>
             <h2>회원가입.</h2>
           </div>
@@ -157,6 +157,4 @@ const Container = styled.div`
   position:block;
   font-family: Pretendard;
 `;
-const div = styled.div`
-  margin: 20px;
-`
+

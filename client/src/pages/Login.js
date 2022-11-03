@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Button } from 'antd';
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 import { Input } from 'antd';
+import lc from './Login.module.css';
 
 
 function LoginPage(props) {
@@ -66,7 +67,7 @@ useEffect(() => {
 [])
 
   return(
-      <Container>
+      <Container className={lc.con}>
         <Form 
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
@@ -74,32 +75,33 @@ useEffect(() => {
           <h2>로그인.</h2>
           <div>
               <p>아이디</p>
-              <Input placeholder="이메일 주소를 입력해주세요." htmlFor='input_id'
+              <Input placeholder="이메일 주소를 입력해주세요." htmlFor='input_id' className={lc.userID}
                             name="username" type='text' value={inputId} onChange={handleInputId} maxLength={"16"} style={{width:"400px"}}/>
           </div>
           <br/>
           <div>
               <p>비밀번호</p>
-              <Input placeholder="비밀번호를 입력해주세요." type='password' name="password"
+              <Input placeholder="비밀번호를 입력해주세요." type='password' name="password" className={lc.userID}
                             htmlFor='input_pw' value={inputPw} onChange={handleInputPw} style={{width:"400px"}}/>
           </div>
           <br/>
-          <div style={{display:"flex", letterSpacing:"0.7px"}}>
+          <div style={{display:"flex", letterSpacing:"0.9px"}}>
             <label for='id_save'>아이디 저장</label>
             <input type={"checkbox"} name='id_save' style={{borderBlockColor:"white"}}/>
-            
+            &nbsp;&nbsp;&nbsp;
             <label for='auto_login'>자동 로그인</label>
             <input type={"checkbox"} name='id_save'/>
           
           </div>
           <br/><br/>
           <div style={{display:"block"}}>
-            <Button type="primary" block content="Login" onClick={onClickLogin} style={{backgroundColor:"#1D2088"}}>로그인</Button>
+            <Button className={lc.btn} type="primary" block content="Login" onClick={onClickLogin} style={{backgroundColor:"#1D2088"}}>로그인</Button>
             <br/><br/>
-            <Button type="primary" block href='/signup' style={{backgroundColor:"white", color:"black"}}>회원가입</Button>
+            <Button className={lc.btn} type="primary" block href='/signup' style={{backgroundColor:"white", color:"black"}}>회원가입</Button>
           </div>
-          <div>
-            <p>SNS 간편 로그인</p>
+        <br/><br/>
+          <div style={{width:"100%", textAlign:"center"}}>
+            <p style={{fontFamily:"Pretendard", fontSize:"20px", fontWeight:"500"}}>SNS 간편 로그인</p>
           </div>
           </Form>
       </Container>

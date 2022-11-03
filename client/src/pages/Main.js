@@ -5,7 +5,7 @@ import Jump from 'react-reveal/Jump';
 
 import ReactFullpage from '@fullpage/react-fullpage';
 import {Link} from 'react-router-dom';
-import maincss from './main.css';
+import './main.css';
 
 class Mainpage extends React.Component {
     onLeave(origin, destination, directicon) {

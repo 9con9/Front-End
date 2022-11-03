@@ -23,6 +23,8 @@ canvas{
     }
 }
 
+
+
 @media(max-width:680px){
     #box{
         width: 420px;
