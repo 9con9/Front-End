@@ -5,7 +5,7 @@ import antd from '../components/AntDesign.module.css';
 import { useState } from 'react';
 import axios from 'axios';
 import { Input } from 'antd';
-import { CircleSpinner } from 'loplat-ui';
+import { CircleLoading } from 'loplat-ui';
 import { SearchOutlined, QuestionCircleOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 import {Modal} from 'antd';
@@ -205,7 +205,7 @@ function ProductPage() {
       <div>
         {loading &&
           <CenterDiv>
-            <CircleSpinner
+            <CircleLoading
               aria-describedby="example"
               aria-labelledby="example"
               duration={1300}
