@@ -55,7 +55,7 @@ function IssuePage(props) {
                 </NewsContainer>
                 <NoticeContainer>
                     <NoticeBoard>
-                        <img style={{width:"100%", height:"70%", alignItems:"center"}} src={process.env.PUBLIC_URL + '/img/BoardDummy.png'}/>
+                        {/* <img style={{width:"100%", height:"70%", alignItems:"center"}} src={process.env.PUBLIC_URL + '/img/BoardDummy.png'}/> */}
                     </NoticeBoard>
                 </NoticeContainer>
                 <TheCheatContainer>
