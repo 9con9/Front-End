@@ -45,7 +45,13 @@
     max-width: 1000px;
 }
 .qr{
-    margin-top: 3%;
+    margin-top: 15px;
+}
+
+@media(min-width:2500px){
+    .ser{
+        margin-left: -30%;
+    }
 }
 @media(max-width:1360px){
     #ha{

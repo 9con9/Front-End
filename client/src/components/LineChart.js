@@ -32,6 +32,7 @@ export default function LineChart(props) {
 
   const options = {
     responsive: true,
+    hidden:true,
     plugins: {
       title: {
         display: true,
@@ -40,7 +41,7 @@ export default function LineChart(props) {
     },
   };
 
-  let labels = ['7일 전', '6일 전', '5일 전', '4일 전', '3일 전','2일 전','오늘'];
+  let labels = ['7일 전', '6일 전', '5일 전', '4일 전', '3일 전', '2일 전','오늘'];
 
   const data = {
     labels,
@@ -53,7 +54,7 @@ export default function LineChart(props) {
       },
       {
         label: '당근마켓',
-        data: dangn,
+        data:dangn,
         borderColor: '#fa6616',
         backgroundColor: '#ff9f43',
       },
@@ -81,4 +82,5 @@ const Box = styled.div`
   justify-content: center;
   width: 1200px;
   height: 600px;
+  z-index: 9999;
 `

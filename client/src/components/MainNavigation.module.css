@@ -70,9 +70,10 @@
         padding: 0 14.63%;
     }
 
+
     .etc li {
         color: #393939;
-    }
+
 }
 
 @media screen and (min-width: 851px) and (max-width: 1160px) {
