@@ -3,7 +3,16 @@ import mainNav from './MainNavigation.module.css';
 import 'antd/dist/antd.css';
 import { RiseOutlined, UserOutlined } from '@ant-design/icons';
 
-function MainNavigation() {
+function MainNavigation(props) {
+    
+    const logout = () =>{
+        console.log("반응" + sessionStorage.getItem("login"));
+        sessionStorage.removeItem("login");
+        window.location.href = '/';
+        alert('로그아웃 되었습니다');
+    }
+
+
 
     return (
         <div className={mainNav.container}>
@@ -25,7 +34,7 @@ function MainNavigation() {
                 </div>
 
                 <div className={mainNav.etc}>
-                    <ul><Link to='/login'><li>로그인</li></Link><span>&nbsp; ㅣ &nbsp;</span><li>고객센터</li></ul>
+                    <ul>{sessionStorage.getItem("login") != undefined ? <Link to='/'><li onClick={logout}>로그아웃</li></Link> :<Link to='/login'><li>로그인</li></Link>}<span>&nbsp; ㅣ &nbsp;</span><li>고객센터</li></ul>
                     <span className={mainNav.userIcon}><UserOutlined /></span>
                 </div>
             </div>

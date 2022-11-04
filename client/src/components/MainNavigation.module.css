@@ -70,6 +70,7 @@
         padding: 0 14.63%;
     }
 
+
     .etc li {
         color: #393939;
     }
@@ -83,6 +84,7 @@
         width: 100%;
         height: 100px;
         background-color: #FFFFFF;
+        position: absolute;
     }
     .header {
         display: flex;
@@ -153,6 +155,7 @@
 
 @media screen and (max-width: 850px) {
     .container {
+        position: absolute;
         display: flex;
         justify-content: center;
         align-items: center;

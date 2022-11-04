@@ -8,30 +8,30 @@
 @media(max-width:1280px){ 
     .con{
         margin-left: 35%;
-        margin-top: 20%;
+        margin-top: 15%;
     }
 }
 @media(max-width:900px){
     .con{
         margin-left: 30%;
-        margin-top: 30%;
+        margin-top: 15%;
     }
 }
 @media(max-width:750px){
     .con{
         margin-left: 25%;
-        margin-top: 30%;
+        margin-top: 10%;
     }
 }
 @media(max-width:600px){
     .con{
         margin-left: 15%;
-        margin-top: 35%;
+        margin-top: 15%;
     }
 }
 @media(max-width:600px){
     .con{
         margin-left: 10%;
-        margin-top: 35%;
+        margin-top: 8%;
     }
 }

@@ -196,6 +196,7 @@ footer{
 #footset{
   text-align: center;
   align-items: center;
+  margin-top: 10px;
 }
 
 
@@ -341,7 +342,7 @@ footer{
     white-space: wrap;
   }
   #footset{
-    margin-right: 16%;
+
     width: 200vw;
   }
   #img2{
@@ -360,9 +361,10 @@ footer{
 @media(max-width:500px){
   .first_section{
     white-space: wrap;
-    font-size: smaller;
+    
   }
   #fs{
+    margin-left:2%;
     font-size: 30px;
   }
   
@@ -387,7 +389,6 @@ footer{
     margin-right: 10%;
   }
    #second_one{
-    margin-top: 10%;
     margin-right: 60%;
    
    }
@@ -396,18 +397,24 @@ footer{
    }
    
    #fourth_one{
-     margin-top: 20%;
+     margin-top: 30%;
      margin-right: 70%;
    }
   #second{
-   margin-top: 20%;
+   margin-top: 10%;
   }
   .bro{
     display: none;
+  }
+  .ja{
+    white-space: nowrap;
   }
 }
 @media(max-width:420px){
   #img0{
     width: 40vh;
+  }
+  #second_one{
+    margin-top: 0;
   }
 }

@@ -1,6 +1,9 @@
 .con{
     margin-top: 10%;
 }
+.ib{
+    height: 40px;
+}
 @media(max-width:1280px){
     .con{
         margin-top: 15%;

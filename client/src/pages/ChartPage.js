@@ -4,7 +4,7 @@ import React from 'react';
 import LineChart from '../components/LineChart';
 import axios from 'axios';
 import { Input } from 'antd';
-import { CircleLoading, CircleSpinner } from 'loplat-ui';
+import { CircleSpinner } from 'loplat-ui';
 import { QuestionCircleOutlined } from '@ant-design/icons';
 import {Modal} from 'antd';
 import chartcss from './Chartpage.module.css';
@@ -17,9 +17,18 @@ const { Search } = Input;
 //npm install d3@3
 //yarn upgrade
 
+//당일날 받아올 데이터
+const data = 
+{
+'dangn':[640000,635000,600000,610000,450000,470000,550000],
+'joongna':[600000,600000,600000,500000,600000,550000,570000],
+'bunjang':[580000,600000,600000,580000,630000,520000,490000],
+'all':[570000,550000,600000,590000,630000,520000,530000],
+}
+
 function ChartPage() {
   const [loading, setLoading] = useState(false);
-  const [chartData, setChartData] = useState({})
+  const [chartData, setChartData] = useState(data)
 
   const onSearch = value => { startPy(value) }
 
@@ -59,7 +68,7 @@ function ChartPage() {
 
       <div style={{position:"relative", alignItems:"center"}}>
         <div>
-          <img src={process.env.PUBLIC_URL +'/img/chart1.jpg'}/>
+          <img src={process.env.PUBLIC_URL +'/img/chart1.jpg'} style={{maxWidth:"1920px"}}/>
         </div>
         <div className={chartcss.cone} style={{position:"absolute", width:"100%", top:"50%", textAlign:"center", height:"100vw"}}>
           <h2 style={{font:"normal normal 800 3rem/2rem Pretendard", color:"white"}}>
@@ -82,7 +91,7 @@ function ChartPage() {
         <TextBox>
         <Ser className={chartcss.ser} id={chartcss.hi}>
           <QuestionCircleOutlined className={chartcss.qr} style={{fontSize: '25px', color: '#08c', marginRight:"10px" }} onClick={showModal}/>
-          <Search className={chartcss.ho} id={chartcss.ha} placeholder="중고 물품을 검색하세요!" onSearch={onSearch} style={{ width: 600, height: 60}} />
+          <Search className={chartcss.ho} id={chartcss.ha} placeholder="예) 천안 아이패드 에어3" onSearch={onSearch} style={{ width: 600, height: 60}} />
         </Ser>
         </TextBox>
 
@@ -100,7 +109,7 @@ function ChartPage() {
         <div>
         {loading &&
           <CenterDiv>
-            <CircleLoading
+            <CircleSpinner
               aria-describedby="example"
               aria-labelledby="example"
               duration={1300}
