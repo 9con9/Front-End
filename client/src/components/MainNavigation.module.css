@@ -69,6 +69,10 @@
         margin-bottom: 0;
         padding: 0 14.63%;
     }
+
+    .etc li {
+        color: #393939;
+    }
 }
 
 @media screen and (min-width: 851px) and (max-width: 1160px) {
@@ -141,6 +145,10 @@
         margin-bottom: 0;
         padding: 0 8%;
     }
+
+    .etc li {
+        color: #393939;
+    }
 }
 
 @media screen and (max-width: 850px) {
@@ -185,11 +193,10 @@
         justify-content: center;
         width: 63%;
         height: 100%;
-        
         align-items: center;
         vertical-align: center;
         list-style: none;
-        font: normal normal 1px Pretendard;
+        font: normal normal 20px Pretendard;
     }
     
     .content li {
@@ -208,6 +215,10 @@
     
     .etc ul {
         display: none;
+    }
+
+    .etc li {
+        color: #393939;
     }
 }
 
@@ -296,6 +307,10 @@
     .etc ul {
         display: none;
     }
+
+    .etc li {
+        color: #393939;
+    }
 }
 
 @media screen and (max-width: 460px) {
@@ -369,5 +384,9 @@
     
     .etc ul {
         display: none;
+    }
+
+    .etc li {
+        color: #393939;
     }
 }

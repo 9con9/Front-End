@@ -5,7 +5,7 @@ import antd from '../components/AntDesign.module.css';
 import { useState } from 'react';
 import axios from 'axios';
 import { Input } from 'antd';
-import { CircleSpinner } from 'loplat-ui';
+import { CircleLoading } from 'loplat-ui';
 import { SearchOutlined, QuestionCircleOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 import {Modal} from 'antd';
@@ -205,7 +205,7 @@ function ProductPage() {
       <div>
         {loading &&
           <CenterDiv>
-            <CircleSpinner
+            <CircleLoading
               aria-describedby="example"
               aria-labelledby="example"
               duration={1300}
@@ -239,7 +239,7 @@ const Container = styled.div`
   width: 100%;
   /* max-width: 1920px; */
   /* padding-top: 100px; */
-  background-color: #FFFFFF;
+  /* background-color: #FFFFFF; */
 `
 
 const CardContainer = styled.div`
@@ -249,6 +249,7 @@ const CardContainer = styled.div`
   justify-content: space-between;
   width: 100%;
   max-width: 1389px;
+  /* margin-top: 65px; */
   row-gap: 30px;
   background-color: #FFFFFF;
   /* margin-bottom: 30px; */
@@ -277,20 +278,27 @@ const Categori = styled.div`
   /* border: 2px solid black; */
   border-radius: 10px;
   margin-top: 100px;
-  /* margin-bottom: 65px; */
+  margin-bottom: 65px;
 
-  @media screen and (min-width: 851px) and (max-width: 1360px) {
+  @media screen and (min-width: 1161px) and (max-width: 1360px) {
     height: 447.3px;
-    /* margin-bottom: 58.5px; */
+    margin-bottom: 58.5px;
+  }
+  @media screen and (min-width: 851px) and (max-width: 1160px) {
+    height: 423.8px;
+    margin-bottom: 52.25px;
+    margin-top: 0;
   }
   @media screen and (min-width: 576px) and (max-width: 850px) {
     height: 402.57px;
-    /* margin-bottom: 45px; */
+    margin-bottom: 45px;
+    margin-top: 0;
   }
 
   @media screen and (max-width: 575px) {
     height: 362.313px;
-    /* margin-bottom: 34.6px; */
+    margin-bottom: 34.6px;
+    margin-top: 0;
   }
 `
 
