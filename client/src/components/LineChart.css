@@ -2,7 +2,13 @@ canvas{
     margin-bottom: 30%;
 }
 #box{
-    margin-top: 10%;
+    margin-top: 15%;
+}
+#btn{
+    color: #000;
+}
+#HOANG{
+    color: #000;
 }
 @media(max-width:1280px){
     #box{
@@ -10,7 +16,7 @@ canvas{
         height: 500px;
     }
     canvas{
-        margin-bottom: 30%;
+        margin-bottom: 45%;
     }
 }
 @media(max-width:1000px){
@@ -29,6 +35,7 @@ canvas{
     #box{
         width: 420px;
         height: 400px;
+        bottom: 0%;
     }
     canvas{
         margin-bottom: 60%;
