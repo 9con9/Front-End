@@ -14,12 +14,14 @@ const PostList = props => {
 
   return (
     <>
-      <CommonTable headersName={['글번호', '제목', '등록일']}>
+      {/* <table> */}
+      {/* <CommonTable headersName={['글번호', '제목', '등록일']}> */}
+      <CommonTable headersName={['', '', '']}>
         {
           dataList ? dataList.map((item, index) => {
             return (
               <CommonTableRow key={index}>
-                <CommonTableColumn>{ item.no }</CommonTableColumn>
+                <CommonTableColumn>{ item.classificaion }</CommonTableColumn>
                 <CommonTableColumn>
                   <Link to={`/postView/${item.no}`}>{ item.title }</Link>
                 </CommonTableColumn>
@@ -28,6 +30,7 @@ const PostList = props => {
             )
           }) : ''
         }
+      {/* </table> */}
       </CommonTable>
     </>
   )

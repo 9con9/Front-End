@@ -1,16 +1,16 @@
 
 .common-table {
-  width: 80%;
-  margin: 0 auto;
-  text-align: center;
+  width: 100%;
+  /* margin: 0 auto; */
+  /* text-align: center; */
   border-spacing: 0;
 }
 
 .common-table-header-column {
-  border-bottom: 1px solid #e8e8e8;
+  border-bottom: 3px solid #3C3C3C;
   padding: 0;
   font-size: 16px;
-  padding: 10px 5px;
+  /* padding: 10px 5px; */
   font-weight: bold;
 }
 
@@ -20,5 +20,9 @@
 }
 
 .common-table-column {
-  padding: 10px 5px;
+  padding: 10px;  
+  font: normal normal 24px Pretendard;
+  height: 135px;
+  border-bottom: 3px solid black;
+  margin-right: 5%;
 }

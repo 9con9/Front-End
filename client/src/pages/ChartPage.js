@@ -3,8 +3,8 @@ import { useState, useEffect } from 'react';
 import React from 'react';
 import LineChart from '../components/LineChart';
 import axios from 'axios';
-import { Input, Button, Carousel } from 'antd';
-import { black, CircleSpinner } from 'loplat-ui';
+import { Input } from 'antd';
+import { CircleLoading, black } from 'loplat-ui';
 import { QuestionCircleOutlined } from '@ant-design/icons';
 import {Modal} from 'antd';
 import chartcss from './Chartpage.module.css';
@@ -127,7 +127,7 @@ function ChartPage() {
         <div>
         {loading &&
           <CenterDiv>
-            <CircleSpinner
+            <CircleLoading
               aria-describedby="example"
               aria-labelledby="example"
               duration={1300}

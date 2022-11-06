@@ -5,7 +5,7 @@ import antd from '../components/AntDesign.module.css';
 import { useState } from 'react';
 import axios from 'axios';
 import { Input } from 'antd';
-import { CircleSpinner } from 'loplat-ui';
+import { CircleLoading } from 'loplat-ui';
 import { SearchOutlined, QuestionCircleOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 import {Modal} from 'antd';
@@ -1519,7 +1519,7 @@ function ProductPage() {
       <div>
         {loading &&
           <CenterDiv>
-            <CircleSpinner
+            <CircleLoading
               aria-describedby="example"
               aria-labelledby="example"
               duration={1300}
@@ -1602,18 +1602,18 @@ const Categori = styled.div`
   @media screen and (min-width: 851px) and (max-width: 1160px) {
     height: 423.8px;
     margin-bottom: 52.25px;
-    margin-top: 0;
+    /* margin-top: 0; */
   }
   @media screen and (min-width: 576px) and (max-width: 850px) {
     height: 402.57px;
     margin-bottom: 45px;
-    margin-top: 0;
+    /* margin-top: 0; */
   }
 
   @media screen and (max-width: 575px) {
     height: 362.313px;
     margin-bottom: 34.6px;
-    margin-top: 0;
+    /* margin-top: 0; */
   }
 `
 

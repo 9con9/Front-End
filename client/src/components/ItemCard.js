@@ -206,13 +206,13 @@ const TextPrice = styled.p`
     @media screen and (min-width: 850px) {
         font: normal normal 26px pretendard;
         font-weight: bold;
-        margin-bottom: 2px;
+        margin-bottom: 8px;
         color: #191919;
     }
     @media screen and (max-width: 850px) {
         font: normal normal 16px pretendard;
         font-weight: bold;
-        margin-bottom: 2px;
+        margin-bottom: 4px;
         color: #191919;
     }
 `
@@ -256,18 +256,18 @@ const KarrotImg = styled.img`
 
     @media screen and (max-width: 850px) {
         width: 16px;
-        margin-left: 46%;
+        margin-left: 42%;
     }
 `
 
 const JoongImg = styled.img`
     width: 40px;
     vertical-align: top; 
-    margin-left: 50%;
+    margin-left: 46%;
 
     @media screen and (max-width: 850px) {
         width: 27px;
-        margin-left: 40%;
+        margin-left: 36%;
     }
 `
 
@@ -278,6 +278,6 @@ const BGZTImg = styled.img`
     
     @media screen and (max-width: 850px) {
         width: 19px;
-        margin-left: 43%;
+        margin-left: 40%;
     }
 `
