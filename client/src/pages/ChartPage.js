@@ -1,3 +1,4 @@
+/* eslint-disable */
 import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 import React from 'react';
@@ -8,8 +9,6 @@ import { CircleLoading, black } from 'loplat-ui';
 import { QuestionCircleOutlined } from '@ant-design/icons';
 import {Modal} from 'antd';
 import chartcss from './Chartpage.module.css';
-
-
 
 const { Search } = Input;
 
@@ -27,38 +26,36 @@ const data =
 'all':[600000,550000,600000,590000,630000,520000,530000],
 }
 
-const click = (str) => {
-  alert(str)
-}
-
 function ChartPage() {
   //추천어 검색
-  const Iphone12 = () => startPy("천안 아이폰 12");
-  const Iphonexs = () => startPy("인천 아이폰 x");
-  const Note20 = () => startPy("인천 노트20");
-  const sams = () => startPy("천안 삼성 노트북");
-  const Ipad = () => startPy("천안 아이패드 에어3");
-  const mac = () => startPy("천안 맥북프로");
-  const samo = () => startPy("천안 삼성 모니터");
-  const graphic = () => startPy("천안 그래픽카드");
-  const keyboard = () => startPy("천안 키보드");
-  const Ipadpro = () => startPy("서울 키보드")
+  // const Iphone12 = () => startPy("천안 아이폰 12");
+  // const Iphonexs = () => startPy("인천 아이폰 x");
+  // const Note20 = () => startPy("인천 노트20");
+  // const sams = () => startPy("천안 삼성 노트북");
+  // const Ipad = () => startPy("천안 아이패드 에어3");
+  // const mac = () => startPy("천안 맥북프로");
+  // const samo = () => startPy("천안 삼성 모니터");
+  // const graphic = () => startPy("천안 그래픽카드");
+  // const keyboard = () => startPy("천안 키보드");
+  // const Ipadpro = () => startPy("서울 키보드")
 
   const [loading, setLoading] = useState(false);
   const [chartData, setChartData] = useState(data)
   const [size, setSize] = useState('large');
-  const onSearch = value => { startPy(value) }
-
+  
   const startPy = async (keyword) => {
     setLoading(true)
     try {
-      await axios('http://107.21.132.43:5000/chart', {
+      await axios('http://54.174.0.44:5000/chart', {
         method: "get",
         params: {
           value: keyword
         }
       })
-        .then(res => setChartData(res.data))
+        .then(res => {
+          setChartData(res.data)
+          window.localStorage.setItem("chartData", JSON.stringify(res.data));
+        })
         .catch(function(error){
           console.log(error);
         })
@@ -66,6 +63,33 @@ function ChartPage() {
       console.log(error);
     }
     setLoading(false);
+  }
+
+  //로컬스토리지 확인
+  useEffect(() => {
+    if (window.localStorage.getItem("chartData")) {
+      let temp = JSON.parse(window.localStorage.getItem("chartData"))
+      setChartData(temp)
+    }
+  }, [])
+
+  const onSearch = (value) => {
+    console.log("검색어 :" + value)
+    if(loading){
+      alert("❗ 이미 검색이 진행되고 있어요.")
+      return
+    }
+    startPy(value)
+  }
+
+  //카테고리 검색
+  const categorySearch = (str) => {
+    console.log("카테고리 검색어 :"+str)
+    if(loading){
+      alert("❗ 이미 검색이 진행되고 있어요.")
+      return
+    }
+    startPy(str)
   }
 
   //Modal
@@ -109,7 +133,7 @@ function ChartPage() {
         <TextBox>
         <Ser className={chartcss.ser} id={chartcss.hi}>
           <QuestionCircleOutlined className={chartcss.qr} style={{fontSize: '25px', color: '#08c', marginRight:"10px" }} onClick={showModal}/>
-          <Search className={chartcss.ho} id={chartcss.ha} placeholder="예) 천안 아이패드 에어3" onSearch={onSearch} style={{ width: 600, height: 60}} />
+          <Search className={chartcss.ho} id={chartcss.ha} placeholder="예) 천안 아이패드 에어3" onSearch={(e)=>onSearch(e)} style={{ width: 600, height: 60}} />
         </Ser>
         </TextBox>
 
@@ -130,12 +154,10 @@ function ChartPage() {
             <CircleLoading
               aria-describedby="example"
               aria-labelledby="example"
-              duration={1300}
+              duration={1000}
               scale={1}
-              zIndex={0}
-            
             />
-            <h3 style={{whiteSpace:"nowrap"}}>검색 중입니다. 잠시만 기다려주세요.</h3>
+            <h3 style={{whiteSpace:"nowrap", color: '#148CFF', marginTop:8}}>시세 데이터를 수집하고 있어요.</h3>
           </CenterDiv>}
         </div>
         
@@ -143,32 +165,31 @@ function ChartPage() {
       </div>
       </center>
       <Recom>
-            <center style={{display:"block"}}>
-          
+          <center style={{display:"block"}}>
            {/* <p style={{fontWeight:"800", fontSize:"20px"}}>인기 검색어</p> */}
            <h4>중고거래 인기상품</h4>
-          <div className={chartcss.items}> 
-          <Carousel autoplay>
 
-            <div className={chartcss.car}>
-            <Button id={chartcss.btn} ghost={true} onClick={Iphone12} type="primary" shape="round" size={size} style={{borderColor:"#B1B1B1", color:"#5A5A5A", fontFamily:"Pretendard"}}>아이폰 12</Button>&nbsp;&nbsp;
-            <Button id={chartcss.btn} ghost={true} onClick={Iphonexs} type="primary" shape="round" size={size} style={{borderColor:"#B1B1B1", color:"#5A5A5A", fontFamily:"Pretendard"}}>아이폰 XS</Button>&nbsp;&nbsp;
-            <Button id={chartcss.btn} ghost={true} onClick={Note20} type="primary" shape="round" size={size} style={{borderColor:"#B1B1B1", color:"#5A5A5A", fontFamily:"Pretendard"}}>노트 20 울트라</Button>&nbsp;&nbsp;<br className={chartcss.bro}/><br className={chartcss.bro}/>
-            <Button id={chartcss.btn} ghost={true} onClick={sams} type="primary" shape="round" size={size} style={{borderColor:"#B1B1B1", color:"#5A5A5A", fontFamily:"Pretendard"}}>삼성 노트북</Button>&nbsp;&nbsp;
-            <Button id={chartcss.btn} ghost={true} onClick={Ipad} type="primary" shape="round" size={size} style={{borderColor:"#B1B1B1", color:"#5A5A5A", fontFamily:"Pretendard"}}>아이패드 에어 3</Button>
-            </div>
+          <div className={chartcss.items}>
+            <Carousel autoplay>
+              <div className={chartcss.car}>
+                <Button id={chartcss.btn} ghost={true} onClick={(str) => { categorySearch("천안 아이폰 12") }} type="primary" shape="round" size={size} style={{ borderColor: "#B1B1B1", color: "#5A5A5A", fontFamily: "Pretendard" }}>아이폰 12</Button>&nbsp;&nbsp;
+                <Button id={chartcss.btn} ghost={true} onClick={(str) => { categorySearch("인천 아이폰 x") }} type="primary" shape="round" size={size} style={{ borderColor: "#B1B1B1", color: "#5A5A5A", fontFamily: "Pretendard" }}>아이폰 XS</Button>&nbsp;&nbsp;
+                <Button id={chartcss.btn} ghost={true} onClick={(str) => { categorySearch("인천 노트20") }} type="primary" shape="round" size={size} style={{ borderColor: "#B1B1B1", color: "#5A5A5A", fontFamily: "Pretendard" }}>노트 20 울트라</Button>&nbsp;&nbsp;<br className={chartcss.bro} /><br className={chartcss.bro} />
+                <Button id={chartcss.btn} ghost={true} onClick={(str) => { categorySearch("천안 삼성 노트북") }} type="primary" shape="round" size={size} style={{ borderColor: "#B1B1B1", color: "#5A5A5A", fontFamily: "Pretendard" }}>삼성 노트북</Button>&nbsp;&nbsp;
+                <Button id={chartcss.btn} ghost={true} onClick={(str) => { categorySearch("천안 아이패드 에어3") }} type="primary" shape="round" size={size} style={{ borderColor: "#B1B1B1", color: "#5A5A5A", fontFamily: "Pretendard" }}>아이패드 에어 3</Button>
+              </div>
 
-            <div>
-            <Button id={chartcss.btn} ghost={true} onClick={mac} type="primary" shape="round" size={size} style={{borderColor:"#B1B1B1", color:"#5A5A5A", fontFamily:"Pretendard"}}>맥북 프로 m1</Button>&nbsp;&nbsp;
-            <Button id={chartcss.btn} ghost={true} onClick={samo} type="primary" shape="round" size={size} style={{borderColor:"#B1B1B1", color:"#5A5A5A", fontFamily:"Pretendard"}}>삼성 모니터</Button>&nbsp;&nbsp;
-            <Button id={chartcss.btn} ghost={true} onClick={graphic} type="primary" shape="round" size={size} style={{borderColor:"#B1B1B1", color:"#5A5A5A", fontFamily:"Pretendard"}}>그래픽 카드</Button>&nbsp;&nbsp;<br className={chartcss.bro}/><br className={chartcss.bro}/>
-            <Button id={chartcss.btn} ghost={true} onClick={keyboard} type="primary" shape="round" size={size} style={{borderColor:"#B1B1B1", color:"#5A5A5A", fontFamily:"Pretendard"}}>키보드</Button>&nbsp;&nbsp;
-            <Button id={chartcss.btn} ghost={true} onClick={Ipadpro} type="primary" shape="round" size={size} style={{borderColor:"#B1B1B1", color:"#5A5A5A", fontFamily:"Pretendard"}}>아이패드 프로</Button>
-            </div>
+              <div>
+                <Button id={chartcss.btn} ghost={true} onClick={(str) => { categorySearch("천안 맥북프로") }} type="primary" shape="round" size={size} style={{ borderColor: "#B1B1B1", color: "#5A5A5A", fontFamily: "Pretendard" }}>맥북 프로 m1</Button>&nbsp;&nbsp;
+                <Button id={chartcss.btn} ghost={true} onClick={(str) => { categorySearch("천안 삼성 모니터") }} type="primary" shape="round" size={size} style={{ borderColor: "#B1B1B1", color: "#5A5A5A", fontFamily: "Pretendard" }}>삼성 모니터</Button>&nbsp;&nbsp;
+                <Button id={chartcss.btn} ghost={true} onClick={(str) => { categorySearch("천안 그래픽카드") }} type="primary" shape="round" size={size} style={{ borderColor: "#B1B1B1", color: "#5A5A5A", fontFamily: "Pretendard" }}>그래픽 카드</Button>&nbsp;&nbsp;<br className={chartcss.bro} /><br className={chartcss.bro} />
+                <Button id={chartcss.btn} ghost={true} onClick={(str) => { categorySearch("천안 키보드") }} type="primary" shape="round" size={size} style={{ borderColor: "#B1B1B1", color: "#5A5A5A", fontFamily: "Pretendard" }}>키보드</Button>&nbsp;&nbsp;
+                <Button id={chartcss.btn} ghost={true} onClick={(str) => { categorySearch("인천 아이패드 프로") }} type="primary" shape="round" size={size} style={{ borderColor: "#B1B1B1", color: "#5A5A5A", fontFamily: "Pretendard" }}>아이패드 프로</Button>
+              </div>
 
-          </Carousel>
+            </Carousel>
           </div>
-           </center>
+        </center>
         </Recom>
         
       <LineChart items={chartData}></LineChart>
@@ -211,6 +232,7 @@ const CenterDiv = styled.div`
   justify-content: center;
   margin-left: 80%;
   width: 100%;
+  margin-top: 20px;
 `
 
 const Ser = styled.div`
@@ -224,7 +246,7 @@ const Recom = styled.div`
 }
   @media screen and (min-width: 850px) and (max-width: 1001px){
     width: 50rem;
-    line-height:20px
+    line-height:20px;
   }
   @media screen and (min-width: 390px) and (max-width: 850px){
     width: 35rem;
