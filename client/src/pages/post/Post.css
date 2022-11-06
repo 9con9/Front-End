@@ -19,7 +19,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 5%;
 }
 
 .post-view-row > label:first-child {

@@ -13,7 +13,7 @@ import { Select } from 'antd';
 
 const { Option } = Select;
 
-const Dummy_Data = 
+ const Dummy_Data = 
 [
   {
     "img_link": "https://img2.joongna.com/media/original/2022/10/28/1666924022947yIf_HzLLa.jpg",
@@ -1497,7 +1497,7 @@ function ProductPage() {
         </CategoriDivider>
        
       </Categori>
-      <h3 style={{fontWeight:"800", fontSize:"20px", whiteSpace:"nowrap", marginBottom:"3%"}}>총 {copyItems.length}개의 상품이 있습니다.</h3>
+      
       {/* <TextBox>
         <Search placeholder="지역 상품명으로 검색하세요! " onSearch={onSearch} style={{ width: 600, height: 60, marginTop:"25px" }} />
         <Select
@@ -1530,8 +1530,13 @@ function ProductPage() {
           </CenterDiv>}
       </div>
 
+      <div style={{ width: '100%', maxWidth: '1389px', marginTop: 20 }}>
+        <h3 style={{ marginLeft:7, fontWeight: "800", fontSize: "20px", whiteSpace: "nowrap", marginBottom: "3%", fontFamily: "pretendard", marginRight: "auto" }}>총 {copyItems.length}개의 상품이 있습니다.</h3>
+      </div>
+
       {items &&
         <CardContainer>
+          
           {
             copyItems.map((a, i) => {
               return <ItemCard items={copyItems[i]} />

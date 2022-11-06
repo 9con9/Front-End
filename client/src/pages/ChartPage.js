@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import React from 'react';
 import LineChart from '../components/LineChart';
 import axios from 'axios';
-import { Input } from 'antd';
+import { Input, Button, Carousel } from 'antd';
 import { CircleLoading, black } from 'loplat-ui';
 import { QuestionCircleOutlined } from '@ant-design/icons';
 import {Modal} from 'antd';
