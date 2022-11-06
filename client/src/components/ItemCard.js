@@ -54,9 +54,9 @@ function ItemCard(props) {
             <TextBox>
                 {/* <h3 style={{ marginBottom: -5}}> <CommentOutlined /> {props.items.platform}</h3> */}
                 <TextPrice>{props.items.price}원
-                 {props.items.platform === '당근 마켓' && <PlatformImg><KarrotImg src={process.env.PUBLIC_URL + '/img/KarrotMarket.png'}/></PlatformImg>}
-                 {props.items.platform === '중고 나라' && <PlatformImg><JoongImg src={process.env.PUBLIC_URL + '/img/Joonggonara.png'}/></PlatformImg>}
-                 {props.items.platform === '번개 장터' && <PlatformImg><BGZTImg src={process.env.PUBLIC_URL + '/img/BGZT.png'}/></PlatformImg>}
+                 {props.items.platform === '당근마켓' && <PlatformImg><KarrotImg src={process.env.PUBLIC_URL + '/img/KarrotMarket.png'}/></PlatformImg>}
+                 {props.items.platform === '중고나라' && <PlatformImg><JoongImg src={process.env.PUBLIC_URL + '/img/Joonggonara.png'}/></PlatformImg>}
+                 {props.items.platform === '번개장터' && <PlatformImg><BGZTImg src={process.env.PUBLIC_URL + '/img/BGZT.png'}/></PlatformImg>}
                 </TextPrice>
                 {/* <FormOutlined /> */}
                 <TextTitle>{props.items.name}</TextTitle>
@@ -204,13 +204,13 @@ const TextPrice = styled.p`
     @media screen and (min-width: 850px) {
         font: normal normal 26px pretendard;
         font-weight: bold;
-        margin-bottom: 2px;
+        margin-bottom: 8px;
         color: #191919;
     }
     @media screen and (max-width: 850px) {
         font: normal normal 16px pretendard;
         font-weight: bold;
-        margin-bottom: 2px;
+        margin-bottom: 4px;
         color: #191919;
     }
 `
@@ -254,18 +254,18 @@ const KarrotImg = styled.img`
 
     @media screen and (max-width: 850px) {
         width: 16px;
-        margin-left: 46%;
+        margin-left: 42%;
     }
 `
 
 const JoongImg = styled.img`
     width: 40px;
     vertical-align: top; 
-    margin-left: 50%;
+    margin-left: 46%;
 
     @media screen and (max-width: 850px) {
         width: 27px;
-        margin-left: 40%;
+        margin-left: 36%;
     }
 `
 
@@ -276,6 +276,6 @@ const BGZTImg = styled.img`
     
     @media screen and (max-width: 850px) {
         width: 19px;
-        margin-left: 43%;
+        margin-left: 40%;
     }
 `

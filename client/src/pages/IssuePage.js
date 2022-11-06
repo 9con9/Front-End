@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import PostMain from './post/PostMain';
 function IssuePage(props) {
     return (
         <Container>
@@ -55,6 +55,9 @@ function IssuePage(props) {
                 </NewsContainer>
                 <NoticeContainer>
                     <NoticeBoard>
+                        <div>
+                            <PostMain />
+                        </div>
                         {/* <img style={{width:"100%", height:"70%", alignItems:"center"}} src={process.env.PUBLIC_URL + '/img/BoardDummy.png'}/> */}
                     </NoticeBoard>
                 </NoticeContainer>
@@ -135,6 +138,7 @@ const Platform = styled.div`
     @media screen and (max-width: 1230px) {
         max-width: 256.25px;
         min-width: 256.25px;
+        min-width: 256.25px;
         height: 169.76px;
         max-height: 169.76px;
         min-height: 169.76px;
@@ -194,17 +198,16 @@ const NoticeContainer = styled.div`
     flex-direction: column;
     width: 100%;
     max-width: 1920px;
-    height: 983px;
+    height: 848px;
     vertical-align: center;
     align-items: center;
     background-color: #FAFAFA;
-    
     /* border: 3px solid black;   */
 `
 const NoticeBoard = styled.div`
     width: 100%;
     max-width: 1380px;
-    height: 983px;
+    height: 848px;
     /* border: 3px solid yellow; */
 `
 const TheCheatContainer = styled.div`
@@ -216,7 +219,7 @@ const TheCheatContainer = styled.div`
     vertical-align: center;
     align-items: center;
     background-color: #FAFAFA;
-    margin-top: -210px;
+    /* margin-top: -210px; */
     background: #006CB5;
     
     /* border: 3px solid black;   */

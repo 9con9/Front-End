@@ -4,7 +4,7 @@ import React from 'react';
 import LineChart from '../components/LineChart';
 import axios from 'axios';
 import { Input } from 'antd';
-import { CircleSpinner } from 'loplat-ui';
+import { CircleLoading } from 'loplat-ui';
 import { QuestionCircleOutlined } from '@ant-design/icons';
 import {Modal} from 'antd';
 import chartcss from './Chartpage.module.css';
@@ -109,7 +109,7 @@ function ChartPage() {
         <div>
         {loading &&
           <CenterDiv>
-            <CircleSpinner
+            <CircleLoading
               aria-describedby="example"
               aria-labelledby="example"
               duration={1300}
