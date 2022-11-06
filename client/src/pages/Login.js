@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styled from "styled-components";
-import axios from 'axios';
 import { Button } from 'antd';
 import { Input } from 'antd';
 import lc from './Login.module.css';
@@ -46,45 +45,6 @@ const onClickSignup = () => {
   window.location.href = './signup'
   sessionStorage.removeItem("login");
 }
-
-
-// login 버튼 클릭 이벤트
-// const onClickLogin = () => {
-//     axios.post('http://localhost:3001/onLogin', null, {
-//         params: {
-//         'user_id': inputId,
-//         'user_pw': inputPw
-//         }
-//     })
-//     .then(res => {
-//         if(res.data.iduser === undefined){
-//             // id 일치하지 않는 경우 userId = undefined, msg = '입력하신 id 가 일치하지 않습니다.'
-//             console.log('======================',res.data.msg)
-//             alert('입력하신 id 가 일치하지 않습니다.')
-//         } else if(res.data.iduser === null){
-//             // id는 있지만, pw 는 다른 경우 userId = null , msg = undefined
-//             console.log('======================','입력하신 비밀번호 가 일치하지 않습니다.')
-//             alert('입력하신 비밀번호 가 일치하지 않습니다.')
-//         } else if(res.data.iduser === inputId) {
-//             // id, pw 모두 일치 userId = userId1, msg = undefined
-//             console.log('======================','로그인 성공')
-//             sessionStorage.setItem('user_id', inputId)
-//             sessionStorage.setItem('user_nickname',res.data.nickname)
-//         }
-//         // 작업 완료 되면 페이지 이동(새로고침)
-//         document.location.href = '/'
-//     })
-//     .catch()
-// }
-
-// 페이지 렌더링 후 가장 처음 호출되는 함수
-// useEffect(() => {
-//     axios.get('/server/login')
-//     .then(res => console.log(res))
-//     .catch()
-// },
-// 페이지 호출 후 처음 한번만 호출될 수 있도록 [] 추가
-// [])
 
   return(
       <Container className={lc.con}>
