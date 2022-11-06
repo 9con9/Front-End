@@ -1,8 +1,9 @@
+/* eslint-disable */
 import styled from 'styled-components';
 import ItemCard from '../components/ItemCard.js';
 import 'antd/dist/antd.css';
 import antd from '../components/AntDesign.module.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Input } from 'antd';
 import { CircleLoading } from 'loplat-ui';
@@ -1265,21 +1266,7 @@ function ProductPage() {
   const [loading, setLoading] = useState(false);
   const [items, setItems] = useState([]);
   const [copyItems, setCopyItems] = useState([]);
-
-  //버튼 온클릭
-  //categoly = ["디지털기기", "가구", "유아용품", "스포츠/레저", "의류", "도서/티켓/문구", "악기", "반려동물", "미용", "콘솔게임"]
-  const digitalDevices = () => { startPy("디지털기기") }
-  const furniture = () => { startPy("가구") }
-  const interior = () => { startPy("인테리어") }
-  const baby = () => { startPy("유아용품") }
-  const sports = () => { startPy("스포츠/레저") }
-  const clothing = () => { startPy("의류") }
-  const book = () => { startPy("도서") }
-  const outdoor = () => { startPy("아웃도어") }
-  const supplies = () => { startPy("용품/공구") }
-  const beauty = () => { startPy("미용") }
-  const switches = () => { startPy("스위치") } 
-  const performance = () => { startPy("공연") }
+  const [isCategorySearch, setIsCategorySearch] = useState(false);
 
   //검색
   const startPy = async (keyword) => {
@@ -1294,6 +1281,7 @@ function ProductPage() {
         .then(res => {
           setItems(res.data);
           setCopyItems(res.data);
+          window.localStorage.setItem("productData", JSON.stringify(res.data));
         })
         .catch(function(error){
           console.log(error);
@@ -1304,9 +1292,36 @@ function ProductPage() {
     setLoading(false);
   }
 
+  //검색
   const onSearch = (value) => { 
-    startPy(value) 
+    console.log("검색어 :" + value)
+    if(loading){
+      alert("❗ 이미 검색이 진행되고 있어요.")
+      return
+    }
+    setIsCategorySearch(false);
+    startPy(value)
   }
+
+  //카테고리 검색
+  const categorySearch = (str) => {
+    console.log("카테고리 검색어 :"+str)
+    if(loading){
+      alert("❗ 이미 검색이 진행되고 있어요.")
+      return
+    }
+    setIsCategorySearch(true);
+    startPy(str)
+  }
+
+  //로컬스토리지 확인
+  useEffect(() => {
+    if(window.localStorage.getItem("productData")){
+      let temp = JSON.parse(window.localStorage.getItem("productData"))
+      setItems(temp)
+      setCopyItems(temp)
+    }
+  }, [])
 
   //Modal
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -1360,6 +1375,7 @@ function ProductPage() {
       ))
     }
   }
+
   // , 분리
   const filter2 = (i) => {
     // var clear = copyItems;
@@ -1448,49 +1464,51 @@ function ProductPage() {
               <Search className={antd.ho} id={antd.placeholder} placeholder="지역 상품명으로 검색하세요!" onSearch={onSearch} />
               {/* </CategoriSearch> */}
               <CategoriButton>
-                <Button id={antd.button} onClick={sports} type="ghost">#스포츠/레저</Button>
-                <Button id={antd.button} onClick={switches} type="ghost">#스위치</Button>
-                <Button id={antd.button} onClick={clothing} type="ghost">#의류</Button>
-                <Button id={antd.button} onClick={beauty} type="ghost">#미용</Button>
-                <Button id={antd.button} onClick={digitalDevices} type="ghost">#디지털기기</Button>
-                <Button id={antd.button} onClick={furniture} type="ghost">#가구</Button>
+                <Button id={antd.button} onClick={(str) => categorySearch("스포츠/레저")} type="ghost">#스포츠/레저</Button>
+                <Button id={antd.button} onClick={(str) => categorySearch("의류")} type="ghost">#의류</Button>
+                <Button id={antd.button} onClick={(str) => categorySearch("미용")} type="ghost">#미용</Button>
+                <Button id={antd.button} onClick={(str) => categorySearch("디지털기기")} type="ghost">#디지털기기</Button>
+                <Button id={antd.button} onClick={(str) => categorySearch("가구/인테리어")} type="ghost">#가구</Button>
               {/* borderWidth는 지우세요. */}
               {/* <CategoriItem style={{borderWidth:"0px"}}> */}
-                <Button id={antd.button} onClick={baby} type="ghost">#유아용품</Button>
-                <Button id={antd.button} onClick={performance} type="ghost">#공연</Button>
-                <Button id={antd.button} onClick={book} type="ghost">#도서</Button>
-                <Button id={antd.button} onClick={outdoor} type="ghost">#아웃도어</Button>
-                <Button id={antd.button} onClick={interior} type="ghost">#인테리어</Button>
-                <Button id={antd.button} onClick={supplies} type="ghost">#용품/공구</Button>
+                <Button id={antd.button} onClick={(str) => categorySearch("도서/티켓/문구")}type="ghost">#도서/티켓/문구</Button>
+                <Button id={antd.button} onClick={(str) => categorySearch("반려동물")} type="ghost">#반려동물</Button>
+                <Button id={antd.button} onClick={(str) => categorySearch("콘솔게임")} type="ghost">#콘솔게임</Button>
+                <Button id={antd.button} onClick={(str) => categorySearch("디지털기기")} type="ghost">#인테리어</Button>
               </CategoriButton>
               {/* </CategoriItem> */}
-              {/* borderWidth는 지우세요. */}
-              <CategoriItem style={{padding:"0"}}>
+            {/* borderWidth는 지우세요. */}
+
+            {!isCategorySearch &&
+              <CategoriItem style={{ padding: "0" }}>
                 <Select
                   defaultValue="전체"
                   onChange={handleChange}
-                  // className={styles.customSelect}
+                // className={styles.customSelect}
                 >
                   <Option value="전체">전체</Option>
                   <Option value="당근">당근마켓</Option>
                   <Option value="번개">번개장터</Option>
                   <Option value="중고">중고나라</Option>
                 </Select>
-                
+
                 {/* 여기는 데이터 가져올때 손좀 봐야 합니다. */}
                 <Select
                   defaultValue="전체"
                   // style={{
                   //   width: 285,
-                // }}
-                onChange={handleChange2}
-              >
+                  // }}
+                  onChange={handleChange2}
+                >
                   <Option value="전체">최신순</Option>
                   <Option value="normal">평균가</Option>
                   <Option value="low">시세 이하</Option>
                   <Option value="high">시세 이상</Option>
                 </Select>
               </CategoriItem>
+
+            }
+
               
             </CategoriItem>
             
@@ -1525,8 +1543,10 @@ function ProductPage() {
               duration={1300}
               scale={1}
               zIndex={0}
-              style={{marginTop:"100px"}}/>
-            <h3 style={{marginTop:"50px", marginBottom:"100px"}}>검색 중입니다. 잠시만 기다려주세요.</h3>
+              style={{ marginTop: "100px" }} />
+            <div style={{marginTop:30}}>
+              <h3 style={{ whiteSpace: "nowrap", color: '#148CFF' }}>상품 데이터를 수집하고 있어요.</h3>
+            </div>
           </CenterDiv>}
       </div>
 
