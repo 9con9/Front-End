@@ -42,6 +42,7 @@
     border: 1px solid #3E3E3E;
     border-right: none;
     max-width: 1000px;
+    font: normal normal 600 20px pretendard;
 }
 .qr{
     margin-top: 15px;

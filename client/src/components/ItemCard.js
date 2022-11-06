@@ -22,6 +22,7 @@ import { transparent } from 'loplat-ui';
 const { Meta } = Card;
 
 
+
 function ItemCard(props) {
     
     return (
@@ -35,6 +36,7 @@ function ItemCard(props) {
                             backgroundImage: `url(${props.items.img_link})`,
                             backgroundPosition: 'center',
                             backgroundsize: 'cover',
+                            
                         }}>
                         <OutlierBox>
                             {props.items.outlier === 'high' && <High>평균보다 비싸요</High>}
@@ -54,9 +56,9 @@ function ItemCard(props) {
             <TextBox>
                 {/* <h3 style={{ marginBottom: -5}}> <CommentOutlined /> {props.items.platform}</h3> */}
                 <TextPrice>{props.items.price}원
-                 {props.items.platform === '당근 마켓' && <PlatformImg><KarrotImg src={process.env.PUBLIC_URL + '/img/KarrotMarket.png'}/></PlatformImg>}
-                 {props.items.platform === '중고 나라' && <PlatformImg><JoongImg src={process.env.PUBLIC_URL + '/img/Joonggonara.png'}/></PlatformImg>}
-                 {props.items.platform === '번개 장터' && <PlatformImg><BGZTImg src={process.env.PUBLIC_URL + '/img/BGZT.png'}/></PlatformImg>}
+                 {props.items.platform === '당근마켓' && <PlatformImg><KarrotImg src={process.env.PUBLIC_URL + '/img/KarrotMarket.png'}/></PlatformImg>}
+                 {props.items.platform === '중고나라' && <PlatformImg><JoongImg src={process.env.PUBLIC_URL + '/img/Joonggonara.png'}/></PlatformImg>}
+                 {props.items.platform === '번개장터' && <PlatformImg><BGZTImg src={process.env.PUBLIC_URL + '/img/BGZT.png'}/></PlatformImg>}
                 </TextPrice>
                 {/* <FormOutlined /> */}
                 <TextTitle>{props.items.name}</TextTitle>

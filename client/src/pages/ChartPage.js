@@ -52,7 +52,7 @@ function ChartPage() {
   const startPy = async (keyword) => {
     setLoading(true)
     try {
-      await axios('http://54.153.1.214:5000/chart', {
+      await axios('http://107.21.132.43:5000/chart', {
         method: "get",
         params: {
           value: keyword
@@ -93,7 +93,7 @@ function ChartPage() {
             차트
           </h2>
           <p id='chart_1' style={{font:"normal normal 1.6rem/2rem Pretendard", fontSize:"normal", color:"white"}}>
-            중고 상품의 최근 1주일 시세를<br className={chartcss.bro}></br>
+            중고 상품의 최근 1주일 시세를 <br className={chartcss.bro}></br>
             볼 수 있는 차트를 제공합니다.
           </p>
         </div>
@@ -143,27 +143,27 @@ function ChartPage() {
       </div>
       </center>
       <Recom>
-            <center>
+            <center style={{display:"block"}}>
           
            {/* <p style={{fontWeight:"800", fontSize:"20px"}}>인기 검색어</p> */}
-           
+           <h4>중고거래 인기상품</h4>
           <div className={chartcss.items}> 
           <Carousel autoplay>
 
             <div className={chartcss.car}>
-            <Button id={chartcss.btn} ghost={true} onClick={Iphone12} type="primary" shape="round" size={size} style={{borderColor:"#B1B1B1", color:"#5A5A5A"}}>아이폰 12</Button>&nbsp;&nbsp;
-            <Button id={chartcss.btn} ghost={true} onClick={Iphonexs} type="primary" shape="round" size={size} style={{borderColor:"#B1B1B1", color:"#5A5A5A"}}>아이폰 XS</Button>&nbsp;&nbsp;
-            <Button id={chartcss.btn} ghost={true} onClick={Note20} type="primary" shape="round" size={size} style={{borderColor:"#B1B1B1", color:"#5A5A5A"}}>노트 20 울트라</Button>&nbsp;&nbsp;<br className={chartcss.bro}/><br className={chartcss.bro}/>
-            <Button id={chartcss.btn} ghost={true} onClick={sams} type="primary" shape="round" size={size} style={{borderColor:"#B1B1B1", color:"#5A5A5A"}}>삼성 노트북</Button>&nbsp;&nbsp;
-            <Button id={chartcss.btn} ghost={true} onClick={Ipad} type="primary" shape="round" size={size} style={{borderColor:"#B1B1B1", color:"#5A5A5A"}}>아이패드 에어 3</Button>
+            <Button id={chartcss.btn} ghost={true} onClick={Iphone12} type="primary" shape="round" size={size} style={{borderColor:"#B1B1B1", color:"#5A5A5A", fontFamily:"Pretendard"}}>아이폰 12</Button>&nbsp;&nbsp;
+            <Button id={chartcss.btn} ghost={true} onClick={Iphonexs} type="primary" shape="round" size={size} style={{borderColor:"#B1B1B1", color:"#5A5A5A", fontFamily:"Pretendard"}}>아이폰 XS</Button>&nbsp;&nbsp;
+            <Button id={chartcss.btn} ghost={true} onClick={Note20} type="primary" shape="round" size={size} style={{borderColor:"#B1B1B1", color:"#5A5A5A", fontFamily:"Pretendard"}}>노트 20 울트라</Button>&nbsp;&nbsp;<br className={chartcss.bro}/><br className={chartcss.bro}/>
+            <Button id={chartcss.btn} ghost={true} onClick={sams} type="primary" shape="round" size={size} style={{borderColor:"#B1B1B1", color:"#5A5A5A", fontFamily:"Pretendard"}}>삼성 노트북</Button>&nbsp;&nbsp;
+            <Button id={chartcss.btn} ghost={true} onClick={Ipad} type="primary" shape="round" size={size} style={{borderColor:"#B1B1B1", color:"#5A5A5A", fontFamily:"Pretendard"}}>아이패드 에어 3</Button>
             </div>
 
             <div>
-            <Button id={chartcss.btn} ghost={true} onClick={mac} type="primary" shape="round" size={size} style={{borderColor:"#B1B1B1", color:"#5A5A5A"}}>맥북 프로 m1</Button>&nbsp;&nbsp;
-            <Button id={chartcss.btn} ghost={true} onClick={samo} type="primary" shape="round" size={size} style={{borderColor:"#B1B1B1", color:"#5A5A5A"}}>삼성 모니터</Button>&nbsp;&nbsp;
-            <Button id={chartcss.btn} ghost={true} onClick={graphic} type="primary" shape="round" size={size} style={{borderColor:"#B1B1B1", color:"#5A5A5A"}}>그래픽 카드</Button>&nbsp;&nbsp;<br className={chartcss.bro}/><br className={chartcss.bro}/>
-            <Button id={chartcss.btn} ghost={true} onClick={keyboard} type="primary" shape="round" size={size} style={{borderColor:"#B1B1B1", color:"#5A5A5A"}}>키보드</Button>&nbsp;&nbsp;
-            <Button id={chartcss.btn} ghost={true} onClick={Ipadpro} type="primary" shape="round" size={size} style={{borderColor:"#B1B1B1", color:"#5A5A5A"}}>아이패드 프로</Button>
+            <Button id={chartcss.btn} ghost={true} onClick={mac} type="primary" shape="round" size={size} style={{borderColor:"#B1B1B1", color:"#5A5A5A", fontFamily:"Pretendard"}}>맥북 프로 m1</Button>&nbsp;&nbsp;
+            <Button id={chartcss.btn} ghost={true} onClick={samo} type="primary" shape="round" size={size} style={{borderColor:"#B1B1B1", color:"#5A5A5A", fontFamily:"Pretendard"}}>삼성 모니터</Button>&nbsp;&nbsp;
+            <Button id={chartcss.btn} ghost={true} onClick={graphic} type="primary" shape="round" size={size} style={{borderColor:"#B1B1B1", color:"#5A5A5A", fontFamily:"Pretendard"}}>그래픽 카드</Button>&nbsp;&nbsp;<br className={chartcss.bro}/><br className={chartcss.bro}/>
+            <Button id={chartcss.btn} ghost={true} onClick={keyboard} type="primary" shape="round" size={size} style={{borderColor:"#B1B1B1", color:"#5A5A5A", fontFamily:"Pretendard"}}>키보드</Button>&nbsp;&nbsp;
+            <Button id={chartcss.btn} ghost={true} onClick={Ipadpro} type="primary" shape="round" size={size} style={{borderColor:"#B1B1B1", color:"#5A5A5A", fontFamily:"Pretendard"}}>아이패드 프로</Button>
             </div>
 
           </Carousel>
