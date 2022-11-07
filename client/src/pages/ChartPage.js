@@ -5,7 +5,7 @@ import React from 'react';
 import LineChart from '../components/LineChart';
 import axios from 'axios';
 import { Input, Button, Carousel } from 'antd';
-import { CircleLoading, black } from 'loplat-ui';
+import { CircleSpinner, black } from 'loplat-ui';
 import { QuestionCircleOutlined } from '@ant-design/icons';
 import {Modal} from 'antd';
 import chartcss from './Chartpage.module.css';
@@ -132,7 +132,7 @@ function ChartPage() {
         <div className={chartcss.alser}>
         <TextBox>
         <Ser className={chartcss.ser} id={chartcss.hi}>
-          <QuestionCircleOutlined className={chartcss.qr} style={{fontSize: '25px', color: '#08c', marginRight:"10px" }} onClick={showModal}/>
+          <QuestionCircleOutlined className={chartcss.qr} style={{fontSize: '25px', color: '#08c', marginRight:"10px", position:"relative" }} onClick={showModal}/>
           <Search className={chartcss.ho} id={chartcss.ha} placeholder="예) 천안 아이패드 에어3" onSearch={(e)=>onSearch(e)} style={{ width: 600, height: 60}} />
         </Ser>
         </TextBox>
@@ -151,7 +151,7 @@ function ChartPage() {
         <div>
         {loading &&
           <CenterDiv>
-            <CircleLoading
+            <CircleSpinner
               aria-describedby="example"
               aria-labelledby="example"
               duration={1000}
@@ -192,7 +192,7 @@ function ChartPage() {
         </center>
         </Recom>
         
-      <LineChart items={chartData}></LineChart>
+      <LineChart items={chartData} ></LineChart>
       
       
 
