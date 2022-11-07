@@ -117,8 +117,14 @@
 @media(max-width:585px) {
     #ha{
         height: 43px;
-        margin-left: 10px;
+        margin-left: 20px;
+        width: 220px;
     }
+    .qr{
+        margin-top: 10px;
+        margin-left: 18px;
+    }
+    
     .text{
         margin-left: 10%;
     }
@@ -132,8 +138,21 @@
     #ha{
         margin-left: 20px;
     }
+    .qr{
+        margin-left:0;
+    }
     .ser{
         min-width: 60%;
         margin-top: 100%;
+    }
+}
+
+@media(max-width:450px){
+    #ha{
+        width: 220px;
+        margin-left: 0%;
+    }
+    .qr{
+        margin-left: -30px;
     }
 }
