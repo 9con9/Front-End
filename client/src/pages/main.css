@@ -14,7 +14,7 @@
   background-color: white;
 }
 .section{
-    height: 100vh;
+    height: 100vh !important;
     width: auto;
     object-fit: none; 
     white-space:wrap;
@@ -307,6 +307,7 @@ footer{
   
    #second_one{
     margin-right: 10%;
+    margin-top: 10%;
    }
    #mar{
      margin-right: 200px;
@@ -413,8 +414,5 @@ footer{
 @media(max-width:420px){
   #img0{
     width: 40vh;
-  }
-  #second_one{
-    margin-top: 0;
   }
 }
