@@ -5,7 +5,7 @@ import React from 'react';
 import LineChart from '../components/LineChart';
 import axios from 'axios';
 import { Input, Button, Carousel } from 'antd';
-import { CircleSpinner, black } from 'loplat-ui';
+import { CircleLoading, black } from 'loplat-ui';
 import { QuestionCircleOutlined } from '@ant-design/icons';
 import {Modal} from 'antd';
 import chartcss from './Chartpage.module.css';
@@ -27,18 +27,6 @@ const data =
 }
 
 function ChartPage() {
-  //추천어 검색
-  // const Iphone12 = () => startPy("천안 아이폰 12");
-  // const Iphonexs = () => startPy("인천 아이폰 x");
-  // const Note20 = () => startPy("인천 노트20");
-  // const sams = () => startPy("천안 삼성 노트북");
-  // const Ipad = () => startPy("천안 아이패드 에어3");
-  // const mac = () => startPy("천안 맥북프로");
-  // const samo = () => startPy("천안 삼성 모니터");
-  // const graphic = () => startPy("천안 그래픽카드");
-  // const keyboard = () => startPy("천안 키보드");
-  // const Ipadpro = () => startPy("서울 키보드")
-
   const [loading, setLoading] = useState(false);
   const [chartData, setChartData] = useState(data)
   const [size, setSize] = useState('large');
@@ -46,7 +34,7 @@ function ChartPage() {
   const startPy = async (keyword) => {
     setLoading(true)
     try {
-      await axios('http://54.174.0.44:5000/chart', {
+      await axios('http://54.227.126.49:5000/chart', {
         method: "get",
         params: {
           value: keyword
@@ -152,7 +140,7 @@ function ChartPage() {
         <div>
         {loading &&
           <CenterDiv>
-            <CircleSpinner
+            <CircleLoading
               aria-describedby="example"
               aria-labelledby="example"
               duration={1000}

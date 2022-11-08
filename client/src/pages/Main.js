@@ -113,7 +113,7 @@ class Mainpage extends React.Component {
                       </div>
                       </Fade>
                     </div>
-                    <div className='section' id='footersec' style={{backgroundColor:"#F7F7F7"}}>
+                    <div  id='footersec' style={{backgroundColor:"#F7F7F7"}}>
                     <footer>                
                       <div id='footset'>
                         <p id='foot_1'>CONTACT US .</p>

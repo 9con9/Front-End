@@ -6,7 +6,7 @@ import antd from '../components/AntDesign.module.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Input } from 'antd';
-import { CircleSpinner } from 'loplat-ui';
+import { CircleLoading } from 'loplat-ui';
 import { SearchOutlined, QuestionCircleOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 import {Modal} from 'antd';
@@ -25,7 +25,7 @@ function ProductPage() {
   const startPy = async (keyword) => {
     setLoading(true)
     try {
-      await axios('http://54.174.0.44:5000/search', {
+      await axios('http://54.227.126.49:5000/search', {
         method: "get",
         params: {
           value: keyword
