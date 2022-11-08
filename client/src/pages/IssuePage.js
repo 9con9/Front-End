@@ -5,13 +5,16 @@ function IssuePage(props) {
     return (
         <Container>
             <CenterDiv>
-                <div style={{position:"relative", height:"497px"}}>
-                    <img src={process.env.PUBLIC_URL + '/img/Issue.jpg'} style={{maxWidth:"1920px", opacity:"0.97"}}/>
+                <div style={{position:"relative", alignItems:"center"}}>
+                    <div>
+                        <IssueImg src={process.env.PUBLIC_URL + '/img/Issue.jpg'}/>    
+                    </div>
                     <ImgText>
                         <p style={{font:"normal normal 800 50px Pretendard", marginBottom:"14px"}}>이슈</p>
                         <p style={{font:"normal normal 500 26px Pretendard", letterSpacing:"-0.65px"}}>리셀뷰어의 주요 이슈를 알려드립니다.</p>
-                    </ImgText>    
+                    </ImgText>
                 </div>
+            
                 <NewsContainer>
                     <NewsInfo>
                         <p style={{font:"normal normal 24px Pretendard", color:"#525252",letterSpacing:"-0.6px", marginBottom:"5px", marginLeft:"2px"}}>사기 조회하고 거래하세요!</p>
@@ -46,7 +49,7 @@ function IssuePage(props) {
                             </a>
                             <a href="https://search.daum.net/search?w=news&q=%EC%A4%91%EA%B3%A0%EA%B1%B0%EB%9E%98%20%EC%82%AC%EA%B8%B0&DA=YZR&spacing=0" target="_blank">
                                 <NewsLogo>
-                                    <img style={{width:"100%"}}src={process.env.PUBLIC_URL + '/img/DaumLogo.png'}/>
+                                    <img src={process.env.PUBLIC_URL + '/img/DaumLogo.png'}/>
                                     <DaumFont>다음 바로가기</DaumFont>
                                 </NewsLogo>
                             </a>
@@ -82,8 +85,16 @@ const Container = styled.div`
     width: 100%;
     max-width: 100%;
     padding-top: 100px;
+    overflow: hidden;
     /* border: 5px solid orange; */
 `
+
+const IssueImg = styled.img`
+    max-width: 1920px;
+    /* height: 497px; */
+    opacity: 0.97;
+`
+
 const ImgText = styled.div`
     position: absolute;
     text-align: center;
@@ -103,15 +114,22 @@ const NewsContainer = styled.div`
     height: 430px;
     margin: 76px 0 90px 0;
     /* border: 5px solid blue; */
-    @media screen and (max-width: 1230px) {
+    @media screen and (min-width: 781px) and (max-width: 1230px) {
         margin: 56px 0 70px 0;
         height: 340px;
+    }
+    @media screen and (max-width: 780px) {
+        height: 735px;
     }
 `
 const NewsInfo = styled.div`
     width: 100%;
     max-width: 1380px;
     /* border: 3px solid orange; */
+
+    @media screen and (max-width: 780px) {
+        text-align: center;
+    }
 `
 const NewsList = styled.div`
     display: flex;
@@ -119,8 +137,12 @@ const NewsList = styled.div`
     width: 100%;
     max-width: 1380px;
     justify-content: space-between;
-    
     /* border: 3px solid yellow; */
+
+    @media screen and (max-width: 780px) {
+        /* align-items: center; */
+        flex-direction: column;
+    }
 `
 const Platform = styled.div`
     position: relative;
@@ -133,28 +155,47 @@ const Platform = styled.div`
     /* border: 3px solid black; */
     border-radius: 10px;
     opacity: 0.75;
-    @media screen and (max-width: 1230px) {
+    @media screen and (min-width: 781px) and (max-width: 1230px) {
+        width: 256.25px;
         max-width: 256.25px;
-        min-width: 256.25px;
         min-width: 256.25px;
         height: 169.76px;
         max-height: 169.76px;
         min-height: 169.76px;
     }
+    @media screen and (max-width: 780px) {
+        width: 780px;
+        max-width: 780px;
+        min-width: 780px;
+        height: 169px;
+        max-height: 169px;
+        min-height: 169px;
+        margin-bottom: 30px;
+    }
 `
 const PlatformImg = styled.img`
     width: 100%;
-    @media screen and (max-width: 1230px) {
-        width: 100%;
+    height: auto;
+    @media screen and (max-width: 780px) {
+        width: 90vw;
+        height: 100%;
+        padding-left: 50px;
+        overflow: hidden;
     }
 `
 const NewsLogo = styled.div`
     position: absolute;
     top: 42px;
     left: 38px;
-    @media screen and (max-width: 1230px) {
+    @media screen and (min-width: 781px) and (max-width: 1230px) {
         top: 30px;
         left: 27px;
+    }
+    @media screen and (max-width: 780px) {
+        /* text-align: center; */
+        top: 30px;
+        left: 27px;
+        padding-left: 63px;
     }
 `
 const NaverFont = styled.p`
