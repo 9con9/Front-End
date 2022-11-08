@@ -53,11 +53,12 @@ function ChartPage() {
         }
       })
         .then(res => {
-          setChartData(res.data)
+          setChartData(res.data)          
           window.localStorage.setItem("chartData", JSON.stringify(res.data));
         })
         .catch(function(error){
           console.log(error);
+          alert("❗ 400 error")
         })
     } catch (error) {
       console.log(error);

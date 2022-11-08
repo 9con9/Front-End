@@ -38,6 +38,7 @@ function ProductPage() {
         })
         .catch(function(error){
           console.log(error);
+          alert("❗ 400 error")
         })
     } catch (error) {
       console.log(error);
