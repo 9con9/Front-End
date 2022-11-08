@@ -1,4 +1,82 @@
-@media screen and (min-width: 1160px) {
+@media screen and (min-width: 1921px) {
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100px;
+        background-color: #FFFFFF;
+        position: absolute;
+    }
+
+    .header {
+        display: flex;
+        flex-wrap: nowrap;
+        vertical-align: center;
+        align-items: center;
+        justify-content: space-between;
+        height: 100px;
+        padding: 0 10%;
+        position: absolute;
+        width: 100%;
+        max-width: 2560px;
+        background-color:#FFFFFF;
+        z-index: 9999;
+    }
+    
+    .header a:hover,
+    .header a:active,
+    .header a.active {
+        color: #74b9ff;
+    }
+    
+    .content a {
+        color: #191919;
+    }
+    
+    .logo {
+        width: 25%;
+    }
+    
+    .content {
+        display: flex;
+        width: 40%;
+        height: 100%;
+        align-items: center;
+        list-style: none;
+        font: normal normal 26px Pretendard;
+        gap: 20px;
+    }
+    
+    .content li {
+        padding: 0 10%;
+    }
+    
+    .etc {
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        width: 26.66666%;
+        height: 100%;
+        list-style: none;
+        font: normal normal 16px Pretendard;
+        gap: 20px;
+    }
+
+    .etc ul {
+        display: flex;
+        list-style: none;
+        margin-bottom: 0;
+        padding: 0 14.63%;
+    }
+
+
+    .etc li {
+        color: #393939;
+    }
+}
+
+@media screen and (min-width: 1160px) and (max-width: 1920px) {
     .container {
         display: flex;
         justify-content: center;
