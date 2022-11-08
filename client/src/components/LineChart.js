@@ -82,5 +82,5 @@ const Box = styled.div`
   justify-content: center;
   width: 1200px;
   height: 450px;
- 
+  z-index: 9999;
 `
