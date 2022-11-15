@@ -34,7 +34,7 @@ function ChartPage() {
   const startPy = async (keyword) => {
     setLoading(true)
     try {
-      await axios('http://54.227.126.49:5000/chart', {
+      await axios('http://23.22.235.3:5000/chart', {
         method: "get",
         params: {
           value: keyword
@@ -68,7 +68,13 @@ function ChartPage() {
       alert("❗ 이미 검색이 진행되고 있어요.")
       return
     }
-    startPy(value)
+    if(value==""){
+      alert("❗ 검색어를 입력해 주세요.")
+      return
+    }
+
+    alert("서비스 점검 중입니다.")
+    // startPy(value)
   }
 
   //카테고리 검색
@@ -78,7 +84,8 @@ function ChartPage() {
       alert("❗ 이미 검색이 진행되고 있어요.")
       return
     }
-    startPy(str)
+    alert("서비스 점검 중입니다.")
+    // startPy(str)
   }
 
   //Modal
