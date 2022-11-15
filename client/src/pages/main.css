@@ -167,7 +167,6 @@ span{
   white-space:nowrap;
 }
 
-
 footer{
   display: flex;
   justify-content: center;
@@ -190,15 +189,16 @@ footer{
   letter-spacing: -0.6px;
   color: #191919;
 }
+
 #footersec{
-  height: 50%;
+  height: 1%!important;
 }
+
 #footset{
   text-align: center;
   align-items: center;
   margin-top: 10px;
 }
-
 
 @media(max-width:1400px){
   #img0{

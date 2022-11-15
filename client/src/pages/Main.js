@@ -113,16 +113,23 @@ class Mainpage extends React.Component {
                       </div>
                       </Fade>
                     </div>
-                    <div  id='footersec' style={{backgroundColor:"#F7F7F7"}}>
-                    <footer>                
-                      <div id='footset'>
-                        <p id='foot_1'>CONTACT US .</p>
-                        <p id='foot_2'>리셀뷰어에 궁금한 점을 문의해주세요</p>
-                        <br/>
-                        <p id='foot_3'>문의하기</p>
-                      </div>               
-                    </footer>
-                  </div>
+
+                    <div className='section' id='footersec' style={{width:'100%'}}>
+                      <div style={{width:'100%', height:'100%', backgroundColor:"#f7f7f7"}}>
+                        <footer>
+                          <div id='footset'>
+                            <br/><br/>
+                            <p id='foot_1'>CONTACT US .</p>
+                            <p id='foot_2'>리셀뷰어에 궁금한 점을 문의해주세요</p>
+                            <br />
+                            <p id='foot_3'>문의하기</p>
+                            <br/>
+                          </div>
+                        </footer>
+
+                      </div>
+                    </div>
+
                   </div>
                 );
               }}
