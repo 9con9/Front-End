@@ -11,21 +11,22 @@ import { SearchOutlined, QuestionCircleOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 import {Modal} from 'antd';
 import { Select } from 'antd';
+import DummyData from './DummyData.js';
 
 const { Option } = Select;
 
 function ProductPage() {
   const { Search } = Input;
   const [loading, setLoading] = useState(false);
-  const [items, setItems] = useState([]);
-  const [copyItems, setCopyItems] = useState([]);
+  const [items, setItems] = useState(DummyData);
+  const [copyItems, setCopyItems] = useState(DummyData);
   const [isCategorySearch, setIsCategorySearch] = useState(false);
 
   //검색
   const startPy = async (keyword) => {
     setLoading(true)
     try {
-      await axios('http://54.227.126.49:5000/search', {
+      await axios('http://23.22.235.3:5000/search', {
         method: "get",
         params: {
           value: keyword
@@ -53,8 +54,13 @@ function ProductPage() {
       alert("❗ 이미 검색이 진행되고 있어요.")
       return
     }
-    setIsCategorySearch(false);
-    startPy(value)
+    if(value==""){
+      alert("❗ 검색어를 입력해 주세요.")
+      return
+    }
+    alert("서비스 점검 중입니다.")
+    // setIsCategorySearch(false);
+    // startPy(value)
   }
 
   //카테고리 검색
@@ -64,8 +70,9 @@ function ProductPage() {
       alert("❗ 이미 검색이 진행되고 있어요.")
       return
     }
-    setIsCategorySearch(true);
-    startPy(str)
+    alert("서비스 점검 중입니다.")
+    // setIsCategorySearch(true);
+    // startPy(str)
   }
 
   //로컬스토리지 확인
@@ -90,98 +97,77 @@ function ProductPage() {
   };
 
   //필터
+  const [filterPlatform, setFilterPlatform] = useState('전체');
+  const [filterOutlier, setFilterOutlier] = useState('최신순');
+
+  //플랫폼 선택
   const handleChange = (value) => {
-    console.log(`selected ${value}`);
-    filterItems(value);
+    setFilterPlatform(value);
+  };
+  
+  //이상치 선택
+  const handleChange2 = (value) => {
+    setFilterOutlier(value);
   };
 
-  
-  //필터2
-  const handleChange2 = (value) => {
-    console.log(`selected ${value}`);
-    filterAverage(value);
-  };
+  useEffect(() => {
+    if(filterPlatform && filterOutlier){
+      filter()
+    }
+  }, [filterPlatform, filterOutlier])
+
+  const filter = () => {
+    let temp = items;
+
+    if (items) {
+      if (filterPlatform === '전체') {
+        if (filterOutlier === '최신순') {
+          setCopyItems(items);
+        } else {
+          setCopyItems(temp.filter((i) =>
+            i.outlier.includes(filterOutlier)
+          ))
+        }
+      } else if (filterOutlier === '최신순') {
+        setCopyItems(temp.filter((i) =>
+        i.platform.includes(filterPlatform)
+      ))
+      } else {
+        temp = items;
+        setCopyItems(temp.filter((i) =>
+          i.platform.includes(filterPlatform) && i.outlier.includes(filterOutlier)
+        ))
+      }
+    }
+  }
 
   //평균가, 가격순, 시세이상, 시세이하
   const filterAverage = (i) => {
     let temp = items;
-    if (i === "전체") {
-      setCopyItems(copyItems);
+
+    if (i === "최신순") {
+      setCopyItems(items);
     }
+
     else if (i === "normal") {
-      
       setCopyItems(temp.filter((i) =>
         i.outlier.includes("normal")
       ))
     }
 
     else if (i === "high") {
-      
       setCopyItems(temp.filter((i) =>
         i.outlier.includes("high")
       ))
     }
 
     else if (i === "low") {
-      
       setCopyItems(temp.filter((i) =>
         i.outlier.includes("low")
       ))
     }
   }
 
-  // , 분리
-  const filter2 = (i) => {
-    // var clear = copyItems;
-    // for()
-    // console.log('clear')
-    // console.log(clear)
-  }
-
-  
-  const desc = () =>{
-    var descPrice = copyItems;
-    var priceCompare = (key) => (a, b) => {
-      return a[key] > b[key] 
-                        ? 1 
-                        : a[key] <= b[key] 
-                                ? -1 
-                                : 0;
-    };
-    console.log(descPrice[0].price);
-    descPrice.map((a, i) => {
-      descPrice.sort(priceCompare(descPrice.price))
-      // console.log(descPrice.sort(priceCompare(Number(descPrice[i].price))));
-      console.log(descPrice);
-    })
-  }
-  const filterItems = (i) => {
-
-    let temp = items;
-    if (items) {
-      if (i === "전체") {
-        console.log(temp.price)
-        filter2(i)
-      }
-      else if (i === "당근") {
-        setCopyItems(temp.filter((i) =>
-          i.platform.includes("당근")
-        ))
-      }
-      else if (i === "번개") {
-        
-        setCopyItems(temp.filter((i) =>
-          i.platform.includes("번개")
-        ))
-      }
-      else if (i === "중고") {
-       
-        setCopyItems(temp.filter((i) =>
-          i.platform.includes("중고")
-        ))
-      }
-    }
-  }
   return (
     <Container>
       <Categori>
@@ -248,13 +234,13 @@ function ProductPage() {
 
                 {/* 여기는 데이터 가져올때 손좀 봐야 합니다. */}
                 <Select
-                  defaultValue="전체"
+                  defaultValue="최신순"
                   // style={{
                   //   width: 285,
                   // }}
                   onChange={handleChange2}
                 >
-                  <Option value="전체">최신순</Option>
+                  <Option value="최신순">최신순</Option>
                   <Option value="normal">평균가</Option>
                   <Option value="low">시세 이하</Option>
                   <Option value="high">시세 이상</Option>
