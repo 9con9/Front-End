@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import mainNav from './MainNavigation.module.css';
 import 'antd/dist/antd.css';
-import { RiseOutlined, UserOutlined } from '@ant-design/icons';
+import { UserOutlined } from '@ant-design/icons';
 
 function MainNavigation(props) {
     
@@ -11,8 +11,6 @@ function MainNavigation(props) {
         window.location.href = '/';
         alert('로그아웃 되었습니다');
     }
-
-
 
     return (
         <div className={mainNav.container}>
